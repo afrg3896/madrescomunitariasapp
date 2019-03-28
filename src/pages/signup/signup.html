@@ -1,0 +1,102 @@
+<ion-header>
+    <ion-navbar color="primary">
+        <ion-title>Signup</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <form [formGroup]="myForm" (ngSubmit)="signup()">
+        <ion-list>
+            <ion-item>
+                <ion-icon name="at" item-left></ion-icon>
+                <ion-label stacked>Email:</ion-label>
+                <ion-input formControlName="email" type="text" placeholder="Email"></ion-input>
+            </ion-item>
+            <ion-item class="validation-errors" text-center *ngIf="myForm.get('email').errors && myForm.get('email').dirty">
+                <p color="danger" ion-text *ngIf="myForm.get('email').hasError('email') || myForm.get('email').hasError('pattern') ">Ingrese un Email Válido</p>
+                <p color="danger" ion-text *ngIf="myForm.get('email').hasError('required')">Email requerido</p>
+            </ion-item>
+            <ion-item>
+                <ion-icon name="key" item-left></ion-icon>
+                <ion-label stacked>Password:</ion-label>
+                <ion-input formControlName="password" type="password" placeholder="Password"></ion-input>
+            </ion-item>
+            <ion-item *ngIf="myForm.get('password').errors && myForm.get('password').dirty">
+                <p color="danger" ion-text *ngIf="myForm.get('password').hasError('minlength') || myForm.get('password').hasError('pattern') ">Minimo 6 caracteres</p>
+                <p color="danger" ion-text *ngIf="myForm.get('password').hasError('required')">Contraseña requerido</p>
+            </ion-item>
+            <ion-item>
+                <ion-icon name="contact" item-left></ion-icon>
+                <ion-label stacked>Nombre:</ion-label>
+                <ion-input formControlName="name" type="text" placeholder="Nombre"></ion-input>
+            </ion-item>
+            <ion-item *ngIf="myForm.get('name').errors && myForm.get('name').dirty">
+                <p color="danger" ion-text *ngIf="myForm.get('name').hasError('pattern') ">Ingrese un nombre Válido</p>
+                <p color="danger" ion-text *ngIf="myForm.get('name').hasError('minlength')">Minimo 2 caracteres</p>
+                <p color="danger" ion-text *ngIf="myForm.get('name').hasError('required')">Nombre requerido</p>
+            </ion-item>
+            <ion-item>
+                <ion-icon name="person" item-left></ion-icon>
+                <ion-label stacked>Apellido:</ion-label>
+                <ion-input formControlName="lastname" type="text" placeholder="Apellido"></ion-input>
+            </ion-item>
+            <ion-item *ngIf="myForm.get('lastname').errors && myForm.get('lastname').dirty">
+                <p color="danger" ion-text *ngIf="myForm.get('name').hasError('pattern') ">Ingrese un nombre Válido</p>
+                <p color="danger" ion-text *ngIf="myForm.get('lastname').hasError('minlength')">Minimo 2 caracteres</p>
+                <p color="danger" ion-text *ngIf="myForm.get('lastname').hasError('required')">Apellido requerido</p>
+            </ion-item>
+            <ion-item>
+                <ion-icon name="hand" item-left></ion-icon>
+                <ion-label stacked>Cédula:</ion-label>
+                <ion-input formControlName="cedula" type="number" placeholder="Cédula"></ion-input>
+            </ion-item>
+            <ion-item *ngIf="myForm.get('cedula').errors && myForm.get('cedula').dirty">
+                <p color="danger" ion-text *ngIf="myForm.get('cedula').hasError('minlength')">Mínimo 8 dígitos</p>
+                <p color="danger" ion-text *ngIf="myForm.get('cedula').hasError('maxlength')">Máximo 10 dígitos</p>
+                <p color="danger" ion-text *ngIf="myForm.get('cedula').hasError('required')">Edad requerida</p>
+            </ion-item>
+            <ion-item>
+                <ion-label stacked>Región</ion-label>
+                <ion-select formControlName="region">
+                    <ion-option value="amazonia">Amazonia</ion-option>
+                    <ion-option value="andina">Andina</ion-option>
+                    <ion-option value="caribe">Caribe</ion-option>
+                    <ion-option value="insular">Insular</ion-option>
+                    <ion-option value="orinoquia">Orinoquía</ion-option>
+                    <ion-option value="pacifico">Pacífico</ion-option>
+                </ion-select>
+            </ion-item>
+            <ion-item>
+                <ion-icon name="pin" item-left></ion-icon>
+                <ion-label stacked>Municipio:</ion-label>
+                <ion-input formControlName="municipio" type="text" placeholder="Municipio"></ion-input>
+            </ion-item>
+            <ion-item *ngIf="myForm.get('municipio').errors && myForm.get('municipio').dirty">
+                <p color="danger" ion-text *ngIf="myForm.get('address').hasError('required')">Municipio requerido</p>
+                <p color="danger" ion-text *ngIf="myForm.get('address').hasError('minlength')">Minimo 3 caracteres</p>
+            </ion-item>
+            <ion-item>
+                <ion-icon name="pin" item-left></ion-icon>
+                <ion-label stacked>Direccion Hogar Comunitario:</ion-label>
+                <ion-input formControlName="address" type="text" placeholder="Dirección"></ion-input>
+            </ion-item>
+            <ion-item *ngIf="myForm.get('address').errors && myForm.get('address').dirty">
+                <p color="danger" ion-text *ngIf="myForm.get('address').hasError('required')">Dirección requerido</p>
+            </ion-item>
+            <ion-item>
+                <ion-icon name="call" item-left></ion-icon>
+                <ion-label stacked>Teléfono:</ion-label>
+                <ion-input formControlName="cel" type="number" placeholder="Teléfono"></ion-input>
+            </ion-item>
+            <ion-item *ngIf="myForm.get('cel').errors && myForm.get('cel').dirty">
+                <p color="danger" ion-text *ngIf="myForm.get('cel').hasError('minlength')">Minimo 7 dígitos</p>
+                <p color="danger" ion-text *ngIf="myForm.get('cel').hasError('maxlength')">Máximo 10 dígitos</p>
+                <p color="danger" ion-text *ngIf="myForm.get('cel').hasError('required')">Teléfono requerido</p>
+            </ion-item>
+        </ion-list>
+
+        <div padding>
+            <button ion-button block type="submit" [disabled]="!myForm.valid">Registro</button>
+        </div>
+    </form>
+</ion-content>

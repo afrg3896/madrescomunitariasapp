@@ -1,0 +1,44 @@
+<ion-header>
+
+    <ion-navbar>
+        <ion-buttons left>
+            <button ion-button (click)="cerrar_modal()">Cerrar</button>
+        </ion-buttons>
+        <ion-title text-center>{{titulo | placeHolder:'Crear nuevo Post'}}</ion-title>
+        <ion-buttons right>
+            <button ion-button (click)="crear_post()" [disabled]="titulo.length <= 1 || imagenPreview.length <= 1 ">Crear Post</button>
+        </ion-buttons>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <ion-item>
+        <ion-label floating>Titulo</ion-label>
+        <ion-input type="text" [(ngModel)]="titulo"></ion-input>
+    </ion-item>
+    <ion-list>
+        <ion-item *ngIf="imagenPreview">
+            <img [src]="imagenPreview">
+        </ion-item>
+
+    </ion-list>
+
+    <ion-grid>
+        <ion-row>
+            <ion-col>
+                <button ion-button block icon-left (click)="seleccionar_foto()">
+                    <ion-icon name="photos"></ion-icon>
+                    Seleccionar
+                </button>
+            </ion-col>
+            <ion-col>
+                <button ion-button block icon-left (click)="mostrar_camara()">
+                    <ion-icon name="camera"></ion-icon>
+                    Cámara
+                </button>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

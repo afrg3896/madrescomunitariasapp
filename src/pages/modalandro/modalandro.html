@@ -1,0 +1,69 @@
+<ion-header>
+    <ion-navbar color="primary">
+        <ion-buttons left>
+
+            <button ion-button (click)="cerrar_modal()">
+                      Cerrar
+                  </button>
+
+        </ion-buttons>
+        <ion-title>{{child.nombre}} {{child.apellido}}</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <form [formGroup]="myForm" (ngSubmit)="guardar()" novalidate>
+        <ion-list>
+            <ion-item>
+                <ion-icon name="calendar" item-left></ion-icon>
+                <ion-label>Fecha de Ingreso <br> al servicio o <br> Modalidad</ion-label>
+                <ion-datetime displayFormat="DD/MM/YYYY" pickerFormat="YYYY MMMM DD" min="2019" max="2022" formControlName="fechaservicio"></ion-datetime>
+            </ion-item>
+            <ion-item>
+                <ion-icon name="calendar" item-left></ion-icon>
+                <ion-label>Fecha de la Toma</ion-label>
+                <ion-datetime displayFormat="DD/MM/YYYY" pickerFormat="YYYY MMMM DD" min="2019" max="2022" formControlName="fechatoma"></ion-datetime>
+            </ion-item>
+            <ion-item>
+                <ion-icon name="body" item-left></ion-icon>
+                <ion-label stacked>Peso(kg):</ion-label>
+                <ion-input formControlName="peso" type="number" placeholder="Peso (kg)"></ion-input>
+            </ion-item>
+            <ion-item *ngIf="myForm.get('peso').errors && myForm.get('peso').dirty">
+                <p color="danger" ion-text *ngIf="myForm.get('peso').hasError('min') ">Mínimo 3.4 kg</p>
+                <p color="danger" ion-text *ngIf="myForm.get('peso').hasError('max') ">Máximo 30 kg</p>
+                <p color="danger" ion-text *ngIf="myForm.get('peso').hasError('pattern') ">Máximo 2 dígitos</p>
+                <p color="danger" ion-text *ngIf="myForm.get('peso').hasError('required')">Peso requerido</p>
+            </ion-item>
+            <ion-item>
+                <ion-icon name="body" item-left></ion-icon>
+                <ion-label stacked>Talla(cm):</ion-label>
+                <ion-input formControlName="talla" type="number" placeholder="Talla (cm)"></ion-input>
+            </ion-item>
+            <ion-item *ngIf="myForm.get('talla').errors && myForm.get('talla').dirty">
+                <p color="danger" ion-text *ngIf="myForm.get('talla').hasError('min') ">Mínimo 50 cm</p>
+                <p color="danger" ion-text *ngIf="myForm.get('talla').hasError('max') ">Máximo 130 cm</p>
+                <p color="danger" ion-text *ngIf="myForm.get('talla').hasError('pattern')">Mínimo 2 dígitos</p>
+                <p color="danger" ion-text *ngIf="myForm.get('talla').hasError('required')">Talla requerida</p>
+            </ion-item>
+            <ion-item>
+                <ion-icon name="calendar" item-left></ion-icon>
+                <ion-label>Fecha de la Toma <br> Perímetro Braquial</ion-label>
+                <ion-datetime displayFormat="DD/MM/YYYY" pickerFormat="YYYY MMMM DD" min="2019" max="2022" formControlName="fechabraquial"></ion-datetime>
+            </ion-item>
+            <ion-item>
+                <ion-icon name="body" item-left></ion-icon>
+                <ion-label stacked>Perímetro Braquial(cm):</ion-label>
+                <ion-input formControlName="perimetrobra" type="number" placeholder="Perímetro Braquial(cm)"></ion-input>
+            </ion-item>
+            <ion-item *ngIf="myForm.get('perimetrobra').errors && myForm.get('perimetrobra').dirty">
+                <p color="danger" ion-text *ngIf="myForm.get('perimetrobra').hasError('min') ">Mínimo 3 cm</p>
+                <p color="danger" ion-text *ngIf="myForm.get('perimetrobra').hasError('max') ">Máximo 30 cm</p>
+                <p color="danger" ion-text *ngIf="myForm.get('perimetrobra').hasError('required')">Perímetro Braquial requerido</p>
+            </ion-item>
+        </ion-list>
+        <div padding>
+            <button ion-button block type="submit" [disabled]="myForm.invalid">Ir</button>
+        </div>
+    </form>
+</ion-content>

@@ -1,0 +1,20 @@
+<ion-header>
+    <ion-navbar color="primary">
+        <ion-title>Seleccionar Niño</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-list>
+        <ion-item *ngFor="let item of (child|async)">
+            <ion-thumbnail item-start>
+                <img *ngIf="!item.imagen && item.genero === 'masculino'" src="assets/boy.png">
+                <img *ngIf="!item.imagen && item.genero === 'femenino'" src="assets/girl.png">
+                <img *ngIf="item.imagen" [src]="item.imagen">
+            </ion-thumbnail>
+            <h2>{{item.nombre}} {{item.apellido}}</h2>
+            <p>Edad:{{item.edad}}</p>
+            <button ion-button clear item-end (click)="irRamView(item)">Crear Formulario</button>
+        </ion-item>
+    </ion-list>
+</ion-content>

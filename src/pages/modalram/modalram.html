@@ -1,0 +1,63 @@
+<ion-header>
+    <ion-navbar color="primary">
+        <ion-buttons left>
+
+            <button ion-button (click)="cerrar_modal()">
+              Cerrar
+          </button>
+
+        </ion-buttons>
+        <ion-title>Formato de Veracidad</ion-title>
+
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <form [formGroup]="myForm" (ngSubmit)="addRam()" novalidate>
+        <ion-list>
+            <h3 text-center>Formato Veracidad de Información Ficha de Caracterización Padres</h3>
+            <br>
+            <p>Yo {{item.parentname}} {{item.parentlastname}}, identificado con Cédula de Ciudadania No. {{item.cedula}} de
+                <ion-item>
+                    <ion-input formControlName="cedulaexpedida" type="text" placeholder="Lugar de expedición del documento"></ion-input>
+                </ion-item>
+                <ion-item no-lines *ngIf="myForm.get('cedulaexpedida').errors && myForm.get('cedulaexpedida').dirty">
+                    <p color="danger" ion-text *ngIf="myForm.get('cedulaexpedida').hasError('required')">Campo Requerido</p>
+                </ion-item>
+                , padre / madre o acudiente de la/el niño(a) {{item.nombre}} {{item.apellido}} , identificado con NUIP No. {{item.nuip}} ,usuario de la unidad de servicio
+                <ion-item>
+                    <ion-input formControlName="servicio" type="text" placeholder="Servicio"></ion-input>
+                </ion-item>
+                <ion-item no-lines *ngIf="myForm.get('servicio').errors && myForm.get('servicio').dirty">
+                    <p color="danger" ion-text *ngIf="myForm.get('servicio').hasError('required')">Campo Requerido</p>
+                </ion-item>
+                , manifiesto que la información registrada en la ficha de caracterización es verdadera, correcta y completa.
+                <br> <br> En constancia se firma en {{u.municipio}}, en la fecha correspondiente a {{ram.fecha | date}}
+                <br>
+            </p>
+            <h6 text-center>Datos del padre o acudiente de la/el niño(a)</h6>
+            <p>Nombre: {{item.parentname}} {{item.parentlastname}}</p>
+            <p>CC. No. {{item.cedula}}</p>
+            <h6 text-center>Datos del Profesional o Agente Educativo que diligenció la ficha</h6>
+            <p>Nombre: {{u.nombre}} {{u.apellido}}</p>
+            <p>CC. No. {{u.cedula}}</p>
+            <ion-list radio-group formControlName="aceptacion">
+                <ion-list-header text-center>
+                    Acepto la información <br> presentada en este documento
+                </ion-list-header>
+                <ion-item no-lines>
+                    <ion-label>Acepto</ion-label>
+                    <ion-radio value="si" checked="true" mode="md" item-left></ion-radio>
+                </ion-item>
+                <ion-item no-lines>
+                    <ion-label>No Acepto</ion-label>
+                    <ion-radio value="no" mode="md" item-left></ion-radio>
+                </ion-item>
+            </ion-list>
+            <div padding>
+                <button ion-button block type="submit" [disabled]="myForm.invalid || myForm.get('aceptacion').value === 'no'">Guardar</button>
+            </div>
+        </ion-list>
+
+    </form>
+</ion-content>

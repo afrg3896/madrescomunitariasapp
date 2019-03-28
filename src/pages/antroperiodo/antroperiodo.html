@@ -1,0 +1,21 @@
+<ion-header>
+    <ion-navbar color="primary">
+        <ion-title>antroperiodo</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-list>
+        <h3 text-center>Período de la toma de datos</h3>
+        <ion-item no-lines>
+            <ion-label>Seleccionar Período</ion-label> <br>
+            <ion-select [(ngModel)]="periodox" (ionChange)="onSelectChange($event)">
+                <ion-option value="Enero-Marzo">Enero-Marzo</ion-option>
+                <ion-option value="Abril-Junio">Abril-Junio</ion-option>
+                <ion-option value="Julio-Septiembre">Julio-Septiembre</ion-option>
+                <ion-option value="Octubre-Diciembre">Octubre-Diciembre</ion-option>
+            </ion-select>
+        </ion-item>
+        <button ion-button block (click)="irantropochild()">Hola</button>
+    </ion-list>
+</ion-content>

@@ -1,0 +1,49 @@
+<ion-header>
+    <ion-navbar color="primary">
+        <ion-buttons left>
+
+            <button ion-button (click)="cerrar_modal()">
+                      Cerrar
+                  </button>
+        </ion-buttons>
+        <ion-title>{{video.titulo}}</ion-title>
+
+        <ion-buttons right>
+
+            <button ion-button (click)="comentar()">
+                          Comentar
+                      </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <video *ngIf="video.tipo != 'youtube'" controls="controls" preload="metadata" webkit-playsinline="webkit-playsinline" muted="true" loop width="100%" height="50%">
+            <source [src]="video.fuente" />
+    </video>
+    <iframe *ngIf="video.tipo === 'youtube'" frameborder="0" allowfullscreen [src]="video.fuente | safe" width="100%" height="300px" allow="autoplay; encrypted-media">
+    </iframe>
+
+    <h3 text-center> Comentarios</h3>
+    <ion-card *ngFor="let comentario of (comentarios | async)?.slice().reverse()">
+
+        <ion-item>
+            <ion-avatar item-start>
+                <img *ngIf="!comentario.imagen" src="assets/hogar.png">
+            </ion-avatar>
+            <h2>{{comentario.nombre}}<br>{{comentario.apellido}}</h2>
+        </ion-item>
+
+        <ion-card-content>
+            <p>{{comentario.comentario}}</p>
+        </ion-card-content>
+        <ion-row>
+            <ion-col text-right>
+                <ion-note>
+                    {{comentario.fecha | date}}
+                </ion-note>
+            </ion-col>
+        </ion-row>
+
+    </ion-card>
+</ion-content>

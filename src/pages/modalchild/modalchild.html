@@ -1,0 +1,158 @@
+<ion-header>
+    <ion-navbar color="primary">
+        <ion-buttons left>
+
+            <button ion-button (click)="cerrar_modal()">
+                Cerrar
+            </button>
+
+        </ion-buttons>
+        <ion-title>Agregar Niño</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content pading>
+    <form [formGroup]="myFormChild" (ngSubmit)="addChild()">
+        <ion-list pading>
+            <ion-item>
+                <ion-icon name="contact" item-left></ion-icon>
+                <ion-label stacked>Nombre:</ion-label>
+                <ion-input formControlName="name" type="text" placeholder="Nombre"></ion-input>
+            </ion-item>
+            <ion-item *ngIf="myFormChild.get('name').errors && myFormChild.get('name').dirty">
+                <p color="danger" ion-text *ngIf="myFormChild.get('name').hasError('pattern') ">Ingrese un nombre Válido</p>
+                <p color="danger" ion-text *ngIf="myFormChild.get('name').hasError('minlength')">Minimo 2 caracteres</p>
+                <p color="danger" ion-text *ngIf="myFormChild.get('name').hasError('required')">Nombre requerido</p>
+            </ion-item>
+            <ion-item>
+                <ion-icon name="person" item-left></ion-icon>
+                <ion-label stacked>Apellido:</ion-label>
+                <ion-input formControlName="lastname" type="text" placeholder="Apellido"></ion-input>
+            </ion-item>
+            <ion-item *ngIf="myFormChild.get('lastname').errors && myFormChild.get('lastname').dirty">
+                <p color="danger" ion-text *ngIf="myFormChild.get('lastname').hasError('pattern') ">Ingrese un nombre Válido</p>
+                <p color="danger" ion-text *ngIf="myFormChild.get('lastname').hasError('minlength')">Minimo 2 caracteres</p>
+                <p color="danger" ion-text *ngIf="myFormChild.get('lastname').hasError('required')">Apellido requerido</p>
+            </ion-item>
+
+            <ion-item>
+                <ion-icon name="hand" item-left></ion-icon>
+                <ion-label stacked>Identificación:</ion-label>
+                <ion-input formControlName="nuip" type="number" placeholder="Identificación"></ion-input>
+            </ion-item>
+            <ion-item *ngIf="myFormChild.get('nuip').errors && myFormChild.get('nuip').dirty">
+                <p color="danger" ion-text *ngIf="myFormChild.get('nuip').hasError('maxlength')">Maximo 12 dígitos</p>
+                <p color="danger" ion-text *ngIf="myFormChild.get('nuip').hasError('minlength')">Minimo 10 dígitos</p>
+                <p color="danger" ion-text *ngIf="myFormChild.get('nuip').hasError('required')">Edad requerida</p>
+            </ion-item>
+            <ion-item>
+                <ion-icon name="calendar" item-left></ion-icon>
+                <ion-label>Fecha de Nacimiento</ion-label>
+                <ion-datetime displayFormat="DD/MM/YYYY" pickerFormat="YYYY MMMM DD" min="2012" formControlName="myDate"></ion-datetime>
+            </ion-item>
+            <ion-item>
+                <ion-icon name="hand" item-left></ion-icon>
+                <ion-label stacked>Edad:</ion-label>
+                <ion-input formControlName="age" type="number" placeholder="Edad"></ion-input>
+            </ion-item>
+            <ion-item *ngIf="myFormChild.get('age').errors && myFormChild.get('age').dirty">
+                <p color="danger" ion-text *ngIf="myFormChild.get('age').hasError('maxlength')">Solo 1 dígito</p>
+                <p color="danger" ion-text *ngIf="myFormChild.get('age').hasError('required')">Edad requerida</p>
+            </ion-item>
+            <ion-item>
+                <ion-icon small name="female" item-left></ion-icon>
+                <ion-icon small name="male" item-left></ion-icon>
+                <ion-label stacked>Género</ion-label>
+                <ion-select formControlName="gender">
+                    <ion-option value="masculino">Masculino</ion-option>
+                    <ion-option value="femenino">Femenino</ion-option>
+                </ion-select>
+            </ion-item>
+
+            <ion-item>
+                <ion-icon name="pin" item-left></ion-icon>
+                <ion-label stacked>Direccion:</ion-label>
+                <ion-input formControlName="address" type="text" placeholder="Dirección"></ion-input>
+            </ion-item>
+            <ion-item *ngIf="myFormChild.get('address').errors && myFormChild.get('address').dirty">
+                <p color="danger" ion-text *ngIf="myFormChild.get('address').hasError('required')">Dirección requerido</p>
+            </ion-item>
+
+            <ion-item>
+                <ion-label stackd>Info:</ion-label>
+                <ion-textarea formControlName="info" placeholder="Información Adicional"></ion-textarea>
+            </ion-item>
+
+            <br>
+
+            <h6 text-center>Información de Familiar</h6>
+
+
+            <ion-item>
+                <ion-icon name="contact" item-left></ion-icon>
+                <ion-label stacked>Nombre :</ion-label>
+                <ion-input formControlName="parentname" type="text" placeholder="Nombre"></ion-input>
+            </ion-item>
+            <ion-item *ngIf="myFormChild.get('parentname').errors && myFormChild.get('parentname').dirty">
+                <p color="danger" ion-text *ngIf="myFormChild.get('parentname').hasError('pattern') ">Ingrese un nombre Válido</p>
+                <p color="danger" ion-text *ngIf="myFormChild.get('parentname').hasError('minlength')">Minimo 2 caracteres</p>
+                <p color="danger" ion-text *ngIf="myFormChild.get('parentname').hasError('required')">Nombre requerido</p>
+            </ion-item>
+            <ion-item>
+                <ion-icon name="person" item-left></ion-icon>
+                <ion-label stacked>Apellido:</ion-label>
+                <ion-input formControlName="parentlastname" type="text" placeholder="Apellido"></ion-input>
+            </ion-item>
+            <ion-item *ngIf="myFormChild.get('parentlastname').errors && myFormChild.get('parentlastname').dirty">
+                <p color="danger" ion-text *ngIf="myFormChild.get('parentlastname').hasError('pattern') ">Ingrese un nombre Válido</p>
+                <p color="danger" ion-text *ngIf="myFormChild.get('parentlastname').hasError('minlength')">Minimo 2 caracteres</p>
+                <p color="danger" ion-text *ngIf="myFormChild.get('parentlastname').hasError('required')">Apellido requerido</p>
+            </ion-item>
+
+            <ion-item>
+                <ion-icon name="hand" item-left></ion-icon>
+                <ion-label stacked>Cédula:</ion-label>
+                <ion-input formControlName="cedula" type="number" placeholder="Cédula"></ion-input>
+            </ion-item>
+            <ion-item *ngIf="myFormChild.get('cedula').errors && myFormChild.get('cedula').dirty">
+                <p color="danger" ion-text *ngIf="myFormChild.get('cedula').hasError('minlength')">Mínimo 8 dígitos</p>
+                <p color="danger" ion-text *ngIf="myFormChild.get('cedula').hasError('maxlength')">Máximo 10 dígitos</p>
+                <p color="danger" ion-text *ngIf="myFormChild.get('cedula').hasError('required')">Edad requerida</p>
+            </ion-item>
+
+            <ion-item>
+                <ion-icon name="hand" item-left></ion-icon>
+                <ion-label stacked>Edad:</ion-label>
+                <ion-input formControlName="parentage" type="number" placeholder="Edad"></ion-input>
+            </ion-item>
+            <ion-item *ngIf="myFormChild.get('parentage').errors && myFormChild.get('parentage').dirty">
+                <p color="danger" ion-text *ngIf="myFormChild.get('parentage').hasError('min') ">Mínimo 17 años</p>
+                <p color="danger" ion-text *ngIf="myFormChild.get('parentage').hasError('minlength')">Mínimo 2 dígitos</p>
+                <p color="danger" ion-text *ngIf="myFormChild.get('parentage').hasError('maxlength')">Máximo 2 dígitos</p>
+                <p color="danger" ion-text *ngIf="myFormChild.get('parentage').hasError('required')">Edad requerida</p>
+            </ion-item>
+            <ion-item>
+                <ion-label stacked>Estado Civíl</ion-label>
+                <ion-select formControlName="parentcivil">
+                    <ion-option value="soltero">Soltero</ion-option>
+                    <ion-option value="casado">Casado</ion-option>
+                    <ion-option value="divorciado">Divorciado</ion-option>
+                    <ion-option value="otro">Otro</ion-option>
+                </ion-select>
+            </ion-item>
+            <ion-item>
+                <ion-label stacked>Parentesco</ion-label>
+                <ion-select formControlName="parentesco">
+                    <ion-option value="madre">Madre</ion-option>
+                    <ion-option value="padre">Padre</ion-option>
+                    <ion-option value="abuelo">Abuelo</ion-option>
+                    <ion-option value="otro">Otro</ion-option>
+                </ion-select>
+            </ion-item>
+        </ion-list>
+
+        <div padding>
+            <button ion-button block type="submit" [disabled]="!myFormChild.valid">Añadir</button>
+        </div>
+    </form>
+</ion-content>

@@ -1,0 +1,45 @@
+<ion-header>
+    <ion-navbar color="primary">
+        <ion-buttons left>
+
+            <button ion-button (click)="cerrar_modal()">
+            Cerrar
+        </button>
+
+        </ion-buttons>
+        <ion-title>Periodo: {{periodo.trimestre | titlecase}}</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-scroll scrollX="true" scrollY="true" class="data-scroll">
+        <table class="data-table">
+            <tr class="header">
+                <td text-center>No.de Documento de Identidad (NUIP)</td>
+                <td text-center>Nombres</td>
+                <td text-center>Apellidos</td>
+                <td text-center>Sexo<br>(Masulino/Femenino)</td>
+                <td text-center>Fecha de Nacimiento</td>
+                <td text-center>Fecha Ingreso al Servicio<br>o Modalidad</td>
+                <td text-center>Fecha de la Toma</td>
+                <td text-center>Peso (kg)</td>
+                <td text-center>Talla (cm)</td>
+                <td text-center>Ficha de la Toma Perímetro Braquial</td>
+                <td text-center>Perímetro Braquial (cm)</td>
+            </tr>
+            <tr *ngFor="let item of (child|async)">
+                <td text-center>{{item.nuip}}</td>
+                <td text-center>{{item.nombre}}</td>
+                <td text-center>{{item.apellido}}</td>
+                <td text-center>{{item.genero}}</td>
+                <td text-center>{{item.nacimiento | date: 'dd/MM/yyyy'}}</td>
+                <td text-center>{{item.fechaservicio | date: 'dd/MM/yyyy'}}</td>
+                <td text-center>{{item.fechatoma | date: 'dd/MM/yyyy'}}</td>
+                <td text-center>{{item.peso}}</td>
+                <td text-center>{{item.talla}}</td>
+                <td text-center>{{item.fechaperimetro | date: 'dd/MM/yyyy'}}</td>
+                <td text-center>{{item.perimetro}}</td>
+            </tr>
+        </table>
+    </ion-scroll>
+</ion-content>

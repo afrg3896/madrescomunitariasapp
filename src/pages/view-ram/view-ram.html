@@ -1,0 +1,34 @@
+<ion-header>
+    <ion-navbar color="primary">
+        <ion-buttons left>
+
+            <button ion-button (click)="cerrar_modal()">
+            Cerrar
+        </button>
+
+        </ion-buttons>
+        <ion-title>{{item.childnombre}} {{item.childapellido}} <br> {{item.fecha | date}}</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <h2 text-center>Formato Veracidad Informacion Ficha Caracterización Padres</h2>
+    <p>Yo {{item.acudientenombre}} , identificado con Cédula de Ciudadanía No. {{item.acudientecedula}} de {{item.acudienteexpedicion}} , padre / madre o acudiente de la/el/ niño(a) {{item.childnombre}} {{item.childapellido}}, identificado con NUIP No. {{item.childnuip}}
+        , usuario de la unidad de servicio {{item.servicio}}, manifiesto que la información registrada en la ficha de caracterización es verdadera, correcta y completa. <br><br> En constancia se firma en {{item.lugar}} , {{item.fecha | date}}
+    </p>
+    <h6 text-center>Datos del padre o acudiente de la/el niño(a)</h6>
+    <p>Nombre: {{item.acudientenombre}} {{item.acudienteapellido}}</p>
+    <p>CC. No. {{item.acudientecedula}}</p>
+
+    <h6 text-center>Datos del profesional o Agente Educativo que diligencio la ficha</h6>
+    <p>Nombre: {{item.madrenombre}} {{item.madreapellido}}</p>
+    <p>CC. No. {{item.madrecedula}}</p>
+    <br>
+    <ion-list radio-group>
+        <ion-item no-lines left>
+            <ion-radio checked="true" mode="md" item-left></ion-radio>
+            <ion-label>La información fue aceptada por <br> parte del acudiente del niño</ion-label>
+        </ion-item>
+    </ion-list>
+
+</ion-content>

@@ -1,0 +1,33 @@
+page-contenido {
+    ion-content {
+        background-color: #fff5fc !important;
+        img {
+            border-radius: 0%;
+        }
+    }
+    .fab {
+        width: 40px !important;
+        height: 40px !important;
+        bottom: -15px;
+        left: 10px;
+    }
+    .card {
+        background-color: #fce5f5;
+    }
+    .card p {
+        text-align: center;
+        font-weight: bold;
+        color: #381578;
+    }
+    .card h2 {
+        text-align: center;
+        font-weight: bold;
+        color: #381578;
+    }
+    .card-title {
+        text-align: center;
+        font-size: 2.0em;
+        font-weight: bold;
+        color: #381578;
+    }
+}

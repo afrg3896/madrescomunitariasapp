@@ -1,0 +1,25 @@
+<ion-header>
+    <ion-navbar color="primary">
+        <ion-title> Formato Veracidad Info</ion-title>
+
+        <ion-buttons right>
+            <button ion-button (click)="addram()">
+              <ion-icon name="add-circle"></ion-icon>
+          </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-list>
+        <ion-item *ngFor="let item of (ram|async)">
+            <ion-thumbnail item-start>
+                <img src="assets/documento.png">
+            </ion-thumbnail>
+            <h3>Formato Veracidad de Padres</h3>
+            <p>{{item.childnombre}} {{item.childapellido}} {{item.childnuip}}</p>
+            <p>Fecha: {{item.fecha | date}}</p>
+            <button ion-button clear item-end (click)="viewRam(item)">Ver</button>
+        </ion-item>
+    </ion-list>
+</ion-content>

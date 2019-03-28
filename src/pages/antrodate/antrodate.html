@@ -1,0 +1,22 @@
+<ion-header>
+    <ion-navbar color="primary">
+        <ion-title>Datos Antropométricos</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-list>
+        <h3 text-center>Fecha de la toma de datos</h3>
+        <ion-item no-lines>
+            <ion-label>Seleccionar Año</ion-label> <br>
+            <ion-select [(ngModel)]="yearx" (ionChange)="onSelectChange($event)">
+                <ion-option value="2019">2019</ion-option>
+                <ion-option value="2020">2020</ion-option>
+                <ion-option value="2021">2021</ion-option>
+                <ion-option value="2022">2022</ion-option>
+            </ion-select>
+        </ion-item>
+        <button ion-button block (click)="irantropo()">Continuar</button>
+
+    </ion-list>
+</ion-content>

@@ -1,0 +1,40 @@
+<ion-header>
+    <ion-navbar color="primary">
+        <ion-buttons left>
+
+            <button ion-button (click)="cerrar_modal()">
+              Cerrar
+          </button>
+
+        </ion-buttons>
+        <ion-title text-center>Perfil del niño</ion-title>
+
+        <ion-buttons right>
+            <button ion-button (click)="actualizar()">Actualizar</button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+    <ion-list>
+        <ion-item text-center>
+            <ion-item text-center>
+                <img *ngIf="!item.imagen && item.genero === 'masculino' && !imagenPreview" src="assets/boy.png">
+                <img *ngIf="!item.imagen && item.genero === 'femenino'  && !imagenPreview" src="assets/girl.png">
+                <img *ngIf="imagenPreview" [src]="imagenPreview">
+                <img *ngIf="item.imagen" [src]="item.imagen">
+            </ion-item>
+            <button ion-button (click)="seleccionar_foto()">Seleccionar Foto</button>
+            <h1>{{item.nombre}} {{item.apellido}}</h1>
+            <p>Edad: {{item.edad}}</p>
+            <p>Direccion: {{item.direccion}}</p>
+            <p>Comentarios: {{item.info}}</p>
+            <h2>Información del Pariente</h2>
+            <p>{{item.parentname}} {{item.parentlastname}}</p>
+            <p>Parentesco: {{item.parentesco}}</p>
+            <p>Edad: {{item.parentage}}</p>
+        </ion-item>
+    </ion-list>
+
+</ion-content>

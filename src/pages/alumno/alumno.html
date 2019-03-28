@@ -1,0 +1,40 @@
+<ion-header>
+    <ion-navbar color="primary">
+        <ion-buttons left>
+            <button ion-button menuToggle>
+                <ion-icon name="menu"></ion-icon>
+            </button>
+
+        </ion-buttons>
+        <ion-title>Niños</ion-title>
+
+        <ion-buttons right>
+            <button ion-button (click)="addmodalChild()">
+            <ion-icon name="person-add"></ion-icon>
+          </button>
+
+        </ion-buttons>
+
+
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-list>
+        <ion-item-sliding *ngFor="let item of (child|async)" #slidingItem>
+            <ion-item>
+                <ion-thumbnail item-start>
+                    <img *ngIf="!item.imagen && item.genero === 'masculino'" src="assets/boy.png">
+                    <img *ngIf="!item.imagen && item.genero === 'femenino'" src="assets/girl.png">
+                    <img *ngIf="item.imagen" [src]="item.imagen">
+                </ion-thumbnail>
+                <h2>{{item.nombre}} {{item.apellido}}</h2>
+                <p>Edad:{{item.edad}}</p>
+
+            </ion-item>
+            <ion-item-options side="right">
+                <button ion-button clear item-end (click)="irChildView(item,slidingItem)">Ver</button>
+            </ion-item-options>
+        </ion-item-sliding>
+    </ion-list>
+</ion-content>
