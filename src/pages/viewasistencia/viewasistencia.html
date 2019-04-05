@@ -1,0 +1,18 @@
+<ion-header>
+    <ion-navbar color="rojo">
+        <ion-title>Seleccionar Mes</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-list>
+        <ion-item *ngFor="let item of (asistenciames|async)">
+            <ion-thumbnail item-start>
+                <img src="assets/documento.png">
+            </ion-thumbnail>
+            <h3>Asistencia</h3>
+            <p>Mes: {{item.periodo}}</p>
+            <button ion-button clear item-end (click)="viewasisweek(item)">Ver</button>
+        </ion-item>
+    </ion-list>
+</ion-content>

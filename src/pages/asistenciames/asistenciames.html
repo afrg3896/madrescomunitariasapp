@@ -1,0 +1,29 @@
+<ion-header>
+    <ion-navbar color="rojo">
+        <ion-title>Seleccionar Mes</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-list>
+        <h3 text-center>Período de la toma de datos</h3>
+        <ion-item no-lines>
+            <ion-label>Seleccionar Período</ion-label> <br>
+            <ion-select [(ngModel)]="periodox" (ionChange)="onSelectChange($event)">
+                <ion-option value="Enero">Enero</ion-option>
+                <ion-option value="Febrero">Febrero</ion-option>
+                <ion-option value="Marzo">Marzo</ion-option>
+                <ion-option value="Abril">Abril</ion-option>
+                <ion-option value="Mayo">Mayo</ion-option>
+                <ion-option value="Junio">Junio</ion-option>
+                <ion-option value="Julio">Julio</ion-option>
+                <ion-option value="Agosto">Agosto</ion-option>
+                <ion-option value="Septiembre">Septiembre</ion-option>
+                <ion-option value="Octubre">Octubre</ion-option>
+                <ion-option value="Noviembre">Noviembre</ion-option>
+                <ion-option value="Diciembre">Diciembre</ion-option>
+            </ion-select>
+        </ion-item>
+        <button ion-button block (click)="irasistenciaweek()">Continuar</button>
+    </ion-list>
+</ion-content>

@@ -21,7 +21,7 @@ export class AntrodatePage {
   }
   u:any = [];
   info = [];
-  yearx:any;
+  yearx="2019";
   i=0;
   sw=0;
   pos=0;

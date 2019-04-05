@@ -1,6 +1,6 @@
 <ion-header>
     <ion-navbar color="primary">
-        <ion-title>Signup</ion-title>
+        <ion-title>Registro</ion-title>
     </ion-navbar>
 </ion-header>
 
@@ -18,8 +18,8 @@
             </ion-item>
             <ion-item>
                 <ion-icon name="key" item-left></ion-icon>
-                <ion-label stacked>Password:</ion-label>
-                <ion-input formControlName="password" type="password" placeholder="Password"></ion-input>
+                <ion-label stacked>Contraseña:</ion-label>
+                <ion-input formControlName="password" type="password" placeholder="Contraseña"></ion-input>
             </ion-item>
             <ion-item *ngIf="myForm.get('password').errors && myForm.get('password').dirty">
                 <p color="danger" ion-text *ngIf="myForm.get('password').hasError('minlength') || myForm.get('password').hasError('pattern') ">Minimo 6 caracteres</p>

@@ -1,5 +1,5 @@
 <ion-header>
-    <ion-navbar color="primary">
+    <ion-navbar color="morado">
         <ion-buttons left>
             <button ion-button (click)="cerrar_modal()">Cerrar</button>
         </ion-buttons>
@@ -16,7 +16,7 @@
     <ion-grid>
         <ion-row>
             <ion-col>
-                <button ion-button block icon-left (click)="grabar()" [disabled]="titulo.length <= 1">
+                <button color="morado" ion-button block icon-left (click)="grabar()" [disabled]="titulo.length <= 1">
                         <ion-icon name="videocam"></ion-icon>
                         Subir Video
                     </button>

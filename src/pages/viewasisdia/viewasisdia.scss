@@ -1,0 +1,30 @@
+page-viewasisdia {
+    .data-scroll {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+    .date-table {
+        min-width: 900px;
+    }
+    tr,
+    td {
+        border: 1px solid #000;
+        font-size: 10pt;
+        font-family: Cambria, "Times New Roman", Times, serif;
+        margin: 15px;
+        padding: 15px;
+        textarea {
+            font-size: 1em;
+            font-weight: bold;
+            font-family: Verdana, Arial, Helvetica, sans-serif;
+            border: 1px solid black;
+        }
+    }
+    .header {
+        background: rgb(184, 189, 223);
+        font-weight: bold;
+    }
+}

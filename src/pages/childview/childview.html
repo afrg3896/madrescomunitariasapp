@@ -1,5 +1,5 @@
 <ion-header>
-    <ion-navbar color="primary">
+    <ion-navbar color="rosado">
         <ion-buttons left>
 
             <button ion-button (click)="cerrar_modal()">
@@ -25,7 +25,7 @@
                 <img *ngIf="imagenPreview" [src]="imagenPreview">
                 <img *ngIf="item.imagen" [src]="item.imagen">
             </ion-item>
-            <button ion-button (click)="seleccionar_foto()">Seleccionar Foto</button>
+            <button color="rosado" ion-button (click)="seleccionar_foto()">Seleccionar Foto</button>
             <h1>{{item.nombre}} {{item.apellido}}</h1>
             <p>Edad: {{item.edad}}</p>
             <p>Direccion: {{item.direccion}}</p>

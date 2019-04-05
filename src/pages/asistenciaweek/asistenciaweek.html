@@ -1,0 +1,22 @@
+<ion-header>
+    <ion-navbar color="rojo">
+        <ion-title>Seleccionar Semana</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-list>
+        <h3 text-center>Seleccionar Semana</h3>
+        <ion-item no-lines>
+            <ion-label>Semana</ion-label> <br>
+            <ion-select [(ngModel)]="semana" (ionChange)="onSelectChange($event)">
+                <ion-option value="Primera">Primera Semana</ion-option>
+                <ion-option value="Segunda">Segunda Semana</ion-option>
+                <ion-option value="Tercera">Tercera Semana</ion-option>
+                <ion-option value="Cuarta">Cuarta Semana</ion-option>
+            </ion-select>
+        </ion-item>
+
+        <button ion-button block (click)="irasistenciadia()">Continuar</button>
+    </ion-list>
+</ion-content>

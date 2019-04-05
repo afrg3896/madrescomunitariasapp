@@ -1,6 +1,6 @@
-<ion-tabs color="primary" selectedIndex="0">
-    <ion-tab [root]="tab1" tabTitle="Home" tabIcon="home"></ion-tab>
-    <ion-tab [root]="tab2" tabTitle="Formularios" tabIcon="clipboard"></ion-tab>
-    <ion-tab [root]="tab3" tabTitle="Niños" tabIcon="happy"></ion-tab>
-    <ion-tab [root]="tab4" tabTitle="Contenido" tabIcon="images"></ion-tab>
+<ion-tabs color="primary" selectedIndex="0" [ngClass]="custom_color">
+    <ion-tab [root]="tab1" tabTitle="Home" tabIcon="home" (ionSelect)="changeCustomClass('tabbar_blue')"></ion-tab>
+    <ion-tab [root]="tab2" tabTitle="Formularios" tabIcon="clipboard" (ionSelect)="changeCustomClass('tabbar_rojo')"></ion-tab>
+    <ion-tab [root]="tab3" tabTitle="Niños" tabIcon="happy" (ionSelect)="changeCustomClass('tabbar_rosado')"></ion-tab>
+    <ion-tab [root]="tab4" tabTitle="Contenido" tabIcon="images" (ionSelect)="changeCustomClass('tabbar_morado')"></ion-tab>
 </ion-tabs>

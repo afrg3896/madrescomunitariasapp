@@ -1,5 +1,5 @@
 <ion-header>
-    <ion-navbar color="primary">
+    <ion-navbar color="rojo">
         <ion-title>Datos Antropométricos <br> {{item.year}}</ion-title>
     </ion-navbar>
 </ion-header>
@@ -11,7 +11,7 @@
                 <img src="assets/documento.png">
             </ion-thumbnail>
             <h3>Datos Antropométricos</h3>
-            <p>Toma o Período: {{item.trimestre}}</p>
+            <p>Toma o Período: {{item.periodo}}</p>
             <button ion-button clear item-end (click)="viewantroperiodo(item)">Ver</button>
         </ion-item>
     </ion-list>

@@ -1,5 +1,5 @@
 <ion-header>
-    <ion-navbar color="primary">
+    <ion-navbar color="morado">
         <ion-buttons left>
 
             <button ion-button (click)="cerrar_modal()">
@@ -30,6 +30,7 @@
         <ion-item>
             <ion-avatar item-start>
                 <img *ngIf="!comentario.imagen" src="assets/hogar.png">
+                <img *ngIf="comentario.imagen" [src]="comentario.imagen">
             </ion-avatar>
             <h2>{{comentario.nombre}}<br>{{comentario.apellido}}</h2>
         </ion-item>

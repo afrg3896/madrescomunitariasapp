@@ -1,5 +1,5 @@
 <ion-header>
-    <ion-navbar color="primary">
+    <ion-navbar color="morado">
         <ion-buttons left>
             <button ion-button menuToggle>
                 <ion-icon name="menu"></ion-icon>
@@ -101,10 +101,10 @@
 
     </div>
     <ion-fab bottom right *ngIf="contenido==='imagenes'">
-        <button color="morado" ion-fab mini (click)="mostrar_modal()"><ion-icon name="add"></ion-icon></button>
+        <button color="fab" ion-fab mini (click)="mostrar_modal()"><ion-icon name="add"></ion-icon></button>
     </ion-fab>
     <ion-fab bottom right *ngIf="contenido==='videos'">
-        <button color="danger" ion-fab mini (click)="mostrar_modalvideo()"><ion-icon name="add"></ion-icon></button>
+        <button color="fab" ion-fab mini (click)="mostrar_modalvideo()"><ion-icon name="add"></ion-icon></button>
     </ion-fab>
 
 </ion-content>

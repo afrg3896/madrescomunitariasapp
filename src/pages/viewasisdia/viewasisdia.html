@@ -1,0 +1,33 @@
+<ion-header>
+    <ion-navbar color="rojo">
+        <ion-title>Lista de Asistencia</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-scroll scrollX="true" scrollY="true" class="data-scroll">
+        <table class="data-table">
+            <tr class="header">
+                <td text-center>No. Documento</td>
+                <td text-center>Niño</td>
+                <td text-center>Presente</td>
+                <td text-center>Ausente</td>
+                <td text-center>Motivo de la Ausencia</td>
+            </tr>
+            <tr *ngFor="let item of (asistenciachild|async)">
+                <td text-center>{{item.nuip}}</td>
+                <td text-center>{{item.nombre}} {{item.apellido}}</td>
+                <td text-center>
+                    <ion-radio *ngIf="item.asiste==='si'" checked="true" mode="md" color="secondary"></ion-radio>
+                </td>
+                <td text-center>
+                    <ion-radio *ngIf="item.asiste==='no'" checked="true" mode="md" color="danger"></ion-radio>
+                </td>
+                <td>
+                    <textarea>{{item.motivo}}</textarea>
+                </td>
+
+            </tr>
+        </table>
+    </ion-scroll>
+</ion-content>

@@ -1,0 +1,49 @@
+<ion-header>
+    <ion-navbar color="rojo">
+        <ion-title>Asistencia</ion-title>
+        <ion-buttons right>
+            <button ion-button (click)="crear_asistencia()">Crear Asistencia</button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-list>
+        <h3 text-center>Lista de Asistencia</h3>
+        <ion-item no-lines>
+            <ion-label>Día</ion-label> <br>
+            <ion-select [(ngModel)]="dia" (ionChange)="onSelectChange($event)">
+                <ion-option value="Lunes">Lunes</ion-option>
+                <ion-option value="Martes">Martes</ion-option>
+                <ion-option value="Miercoles">Miércoles</ion-option>
+                <ion-option value="Jueves">Jueves</ion-option>
+                <ion-option value="Viernes">Viernes</ion-option>
+            </ion-select>
+        </ion-item>
+    </ion-list>
+    <ion-scroll scrollX="true" scrollY="true" class="data-scroll">
+        <table class="data-table">
+            <tr class="header">
+                <td text-center>No. Documento</td>
+                <td text-center>Niño</td>
+                <td text-center>Presente</td>
+                <td text-center>Ausente</td>
+                <td text-center>Motivo de la Ausencia</td>
+            </tr>
+            <tr *ngFor="let item of info; let i=index" radio-group [(ngModel)]="radio[i]" (ionChange)="updated($event,i,item, motivo[i])">
+                <td text-center>{{item.nuip}}</td>
+                <td text-center>{{item.nombre}} {{item.apellido}}</td>
+                <td text-center>
+                    <ion-radio value="si" checked="false" mode="md" color="secondary"></ion-radio>
+                </td>
+                <td text-center>
+                    <ion-radio value="no" mode="md" color="danger"></ion-radio>
+                </td>
+                <td>
+                    <textarea [(ngModel)]="motivo[i]" cols="30" rows="10"></textarea>
+                </td>
+
+            </tr>
+        </table>
+    </ion-scroll>
+</ion-content>

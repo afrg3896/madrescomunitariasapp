@@ -51,6 +51,14 @@ import { ModalandroPage } from '../pages/modalandro/modalandro';
 import { ViewantroPage } from '../pages/viewantro/viewantro';
 import { ViewantrotimePage } from '../pages/viewantrotime/viewantrotime';
 import { AntroperiodoPage } from '../pages/antroperiodo/antroperiodo';
+import { AsistenciaPage } from '../pages/asistencia/asistencia';
+import { AsistenciadatePage } from '../pages/asistenciadate/asistenciadate';
+import { AsistenciamesPage } from '../pages/asistenciames/asistenciames';
+import { AsistenciaweekPage } from '../pages/asistenciaweek/asistenciaweek';
+import { AsistenciadiaPage } from '../pages/asistenciadia/asistenciadia';
+import { ViewasistenciaPage } from '../pages/viewasistencia/viewasistencia';
+import { ViewasisweekPage } from '../pages/viewasisweek/viewasisweek';
+import { ViewasisdiaPage } from '../pages/viewasisdia/viewasisdia';
 
 
 
@@ -92,7 +100,15 @@ export const firebaseConfig = {
     AntrochildPage,
     ModalandroPage,
     ViewantroPage,
-    ViewantrotimePage
+    ViewantrotimePage,
+    AsistenciaPage,
+    AsistenciadatePage,
+    AsistenciamesPage,
+    AsistenciaweekPage,
+    AsistenciadiaPage,
+    ViewasistenciaPage,
+    ViewasisweekPage,
+    ViewasisdiaPage
   ],
   imports: [
     BrowserModule,
@@ -133,7 +149,15 @@ export const firebaseConfig = {
     AntrochildPage,
     ModalandroPage,
     ViewantroPage,
-    ViewantrotimePage
+    ViewantrotimePage,
+    AsistenciaPage,
+    AsistenciadatePage,
+    AsistenciamesPage,
+    AsistenciaweekPage,
+    AsistenciadiaPage,
+    ViewasistenciaPage,
+    ViewasisweekPage,
+    ViewasisdiaPage
   ],
   providers: [
     StatusBar,

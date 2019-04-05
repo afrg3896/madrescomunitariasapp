@@ -1,4 +1,4 @@
 export interface Antroperiodo{
-    trimestre:string,
+    periodo:string,
     key?:string,
 }

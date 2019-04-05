@@ -17,10 +17,10 @@ import { AntrochildPage } from '../antrochild/antrochild';
 export class AntroperiodoPage {
   @ViewChild(Navbar) navBar: Navbar;
   antroyearkey:string;
-  periodox:any;
+  periodox="Enero-Marzo";
   userid:string;
   antroperiodo:Antroperiodo={
-    trimestre:'',
+    periodo:'',
     key:''
   }
   u:any = [];
@@ -58,7 +58,7 @@ export class AntroperiodoPage {
       this.create_periodo(this.periodox);
     }else{
       while(this.i<this.info.length && this.sw==0){
-        if(this.info[this.i].trimestre === this.periodox){
+        if(this.info[this.i].periodo === this.periodox){
           this.sw=1;
           this.pos=this.i;
         }
@@ -81,7 +81,7 @@ export class AntroperiodoPage {
   }
 
   create_periodo(periodo:string){
-    this.antroperiodo.trimestre = periodo;
+    this.antroperiodo.periodo = periodo;
     this.afAuth.authState.take(1).subscribe(aut =>{
       this.antroperiodo.key = this.afDatabase.database.ref('usuarios/' + this.userid + '/formularios/antropometrico/' + this.antroyearkey + '/periodo/').push().key;
       this.afDatabase.object(`usuarios/${this.userid}/formularios/antropometrico/${this.antroyearkey}/periodo/${this.antroperiodo.key}`).set(this.antroperiodo)

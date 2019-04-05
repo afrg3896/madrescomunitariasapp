@@ -38,7 +38,7 @@ export class LoginPage {
 
     this.afAuth.auth.signInWithEmailAndPassword(this.myForm.value.email, this.myForm.value.password).then(() => {
       console.log("User logging");
-      this.navCtrl.setRoot(HomePage);
+      this.navCtrl.setRoot(LoginPage);
     }, (err) => {
       this.loading.dismiss().then( () => {
         let alert = this.alertCtrl.create({

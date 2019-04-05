@@ -19,6 +19,20 @@ export class MyApp {
       statusBar.styleDefault();
       splashScreen.hide();
     });
+
+    this.afAuth.authState
+    .subscribe(
+      user=>{
+        if(user){
+          this.rootPage = HomePage;
+        }else{
+          this.rootPage = LoginPage;
+        }
+      },
+      () =>{
+        this.rootPage = LoginPage;
+      }
+    );
   }
 }
 

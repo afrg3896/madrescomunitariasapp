@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AddramPage } from '../addram/addram';
 import { AntropometricoPage } from '../antropometrico/antropometrico';
+import { AsistenciaPage } from '../asistencia/asistencia';
 
 @IonicPage()
 @Component({
@@ -18,6 +19,10 @@ export class FormularioPage {
   }
   ir_antropage(){
     this.navCtrl.push(AntropometricoPage);
+  }
+
+  ir_asistencia(){
+    this.navCtrl.push(AsistenciaPage);
   }
 
 }

@@ -15,7 +15,11 @@ export class TabsPage {
   tab2: any = FormularioPage;
   tab3: any = AlumnoPage;
   tab4: any = ContenidoPage;
+  custom_color = 'tabbar_red';
   constructor(public navCtrl: NavController, public navParams: NavParams,public menuCtrl: MenuController) {
   }
 
+  changeCustomClass(new_class: string) {
+    this.custom_color = new_class;
+  }
 }

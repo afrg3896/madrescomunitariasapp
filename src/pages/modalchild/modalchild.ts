@@ -84,7 +84,7 @@ export class ModalchildPage {
                         this.afAuth.authState.take(1).subscribe(aut =>{
                           this.child.uid = this.afDatabase.database.ref('usuarios/' + this.userid + '/children/').push().key;
                           this.afDatabase.object(`usuarios/${this.userid}/children/${this.child.uid}`).set(this.child)
-                          .then(()=>this.cerrar_modal());
+                          .then();
                         });
 
   }
