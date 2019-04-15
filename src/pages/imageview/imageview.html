@@ -24,7 +24,7 @@
 
         <ion-item>
             <ion-avatar item-start>
-                <img *ngIf="!comentario.imagen" src="assets/hogar.png">
+                <img *ngIf="comentario.imagen === ''" src="assets/hogar.png">
                 <img *ngIf="comentario.imagen" [src]="comentario.imagen">
             </ion-avatar>
             <h2>{{comentario.nombre}}<br>{{comentario.apellido}}</h2>

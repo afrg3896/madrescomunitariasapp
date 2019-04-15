@@ -1,8 +1,21 @@
 page-contenido {
     ion-content {
-        background-color: #fff5fc !important;
+        /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#bface2+0,9b65fe+25,6d29ea+59,381578+97 */
+        background: rgb(191, 172, 226);
+        /* Old browsers */
+        background: -moz-linear-gradient(top, rgba(191, 172, 226, 1) 0%, rgba(155, 101, 254, 1) 25%, rgba(109, 41, 234, 1) 59%, rgba(56, 21, 120, 1) 97%);
+        /* FF3.6-15 */
+        background: -webkit-linear-gradient(top, rgba(191, 172, 226, 1) 0%, rgba(155, 101, 254, 1) 25%, rgba(109, 41, 234, 1) 59%, rgba(56, 21, 120, 1) 97%);
+        /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(to bottom, rgba(191, 172, 226, 1) 0%, rgba(155, 101, 254, 1) 25%, rgba(109, 41, 234, 1) 59%, rgba(56, 21, 120, 1) 97%);
+        /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        /* IE6-9 */
         img {
             border-radius: 0%;
+        }
+        ion-segment-button {
+            border-radius: 0%;
+            background-color: white;
         }
     }
     .fab {

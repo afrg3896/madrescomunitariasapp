@@ -2,4 +2,22 @@ page-imageview {
     ion-content {
         background-color: #fff5fc !important;
     }
+    .card {
+        background-color: #543988;
+        ion-item {
+            background-color: #543988
+        }
+        p {
+            font-weight: bold;
+            color: #fce5f5;
+        }
+        h2 {
+            font-weight: bold;
+            color: #fce5f5;
+        }
+        ion-note {
+            font-weight: bold;
+            color: #fce5f5;
+        }
+    }
 }

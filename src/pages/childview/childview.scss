@@ -1,3 +1,25 @@
 page-childview {
-
+    ion-content {
+        /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f7edf7+2,fff7fc+99 */
+        background: rgb(247, 237, 247);
+        /* Old browsers */
+        background: -moz-linear-gradient(-45deg, rgba(247, 237, 247, 1) 2%, rgba(255, 247, 252, 1) 99%);
+        /* FF3.6-15 */
+        background: -webkit-linear-gradient(-45deg, rgba(247, 237, 247, 1) 2%, rgba(255, 247, 252, 1) 99%);
+        /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(135deg, rgba(247, 237, 247, 1) 2%, rgba(255, 247, 252, 1) 99%);
+        /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    }
+    .ion-itemc {
+        border-color: rgba(0, 0, 0, 0);
+        background-color: rgba(0, 0, 0, 0);
+        p,
+        h1,
+        h2 {
+            color: black;
+        }
+        h2 {
+            font-weight: bold;
+        }
+    }
 }

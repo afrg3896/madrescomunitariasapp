@@ -1,1 +1,16 @@
-page-subirimagen {}
+page-subirimagen {
+    ion-content {
+        /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f0f9ff+0,381578+100&1+0,0.82+100 */
+        background: -moz-linear-gradient(-45deg, rgba(240, 249, 255, 1) 0%, rgba(56, 21, 120, 0.82) 100%);
+        /* FF3.6-15 */
+        background: -webkit-linear-gradient(-45deg, rgba(240, 249, 255, 1) 0%, rgba(56, 21, 120, 0.82) 100%);
+        /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(135deg, rgba(240, 249, 255, 1) 0%, rgba(56, 21, 120, 0.82) 100%);
+        /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        .item.item-trns {
+            border-color: rgba(0, 0, 0, 0);
+            background-color: rgba(0, 0, 0, 0);
+            color: white;
+        }
+    }
+}

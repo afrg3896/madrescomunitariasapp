@@ -1,7 +1,14 @@
 <ion-menu left [content]="content">
     <ion-header>
-        <ion-toolbar color="primary">
-            <ion-title text-center>Menu</ion-title>
+        <ion-toolbar>
+            <ion-item no-lines *ngFor="let item of info">
+                <ion-thumbnail item-start>
+                    <img *ngIf="item.imagen === ''" src="assets/hogar.png">
+                    <img *ngIf="item.imagen" [src]="item.imagen">
+                </ion-thumbnail>
+                <ion-title>{{item.nombre}}</ion-title>
+            </ion-item>
+
         </ion-toolbar>
     </ion-header>
 

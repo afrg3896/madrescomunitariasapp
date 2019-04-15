@@ -35,5 +35,10 @@ export class AntropometricoPage {
   viewantro(item:any){
     this.navCtrl.push(ViewantroPage, {'item':item});
   }
+  ionViewDidLoad() {
+    this.navBar.backButtonClick = () => {
+	    this.navCtrl.setRoot(FormularioPage);
+	  }  
+  }
 
 }

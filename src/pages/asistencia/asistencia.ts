@@ -5,6 +5,7 @@ import { AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Observable } from 'rxjs';
 import { ViewasistenciaPage } from '../viewasistencia/viewasistencia';
+import { FormularioPage } from '../formulario/formulario';
 
 @IonicPage()
 @Component({
@@ -33,5 +34,11 @@ export class AsistenciaPage {
 
   viewasistencia(item:any){
     this.navCtrl.push(ViewasistenciaPage, {'item':item});
+  }
+
+  ionViewDidLoad() {
+    this.navBar.backButtonClick = () => {
+	    this.navCtrl.setRoot(FormularioPage);
+	  }  
   }
 }

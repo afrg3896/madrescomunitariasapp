@@ -18,8 +18,8 @@
 
 <ion-content padding>
     <ion-list>
-        <ion-item text-center>
-            <ion-item text-center>
+        <ion-item no-lines class="ion-itemc" text-center>
+            <ion-item class="ion-itemc" text-center>
                 <img *ngIf="!item.imagen && item.genero === 'masculino' && !imagenPreview" src="assets/boy.png">
                 <img *ngIf="!item.imagen && item.genero === 'femenino'  && !imagenPreview" src="assets/girl.png">
                 <img *ngIf="imagenPreview" [src]="imagenPreview">

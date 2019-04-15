@@ -20,9 +20,9 @@
 </ion-header>
 
 <ion-content padding>
-    <ion-list>
-        <ion-item-sliding *ngFor="let item of (child|async)" #slidingItem>
-            <ion-item>
+    <ion-list class="ion-item3">
+        <ion-item-sliding class="ion-item2" *ngFor="let item of (child|async)" #slidingItem>
+            <ion-item class="ion-item1">
                 <ion-thumbnail item-start>
                     <img *ngIf="!item.imagen && item.genero === 'masculino'" src="assets/boy.png">
                     <img *ngIf="!item.imagen && item.genero === 'femenino'" src="assets/girl.png">
@@ -33,7 +33,7 @@
 
             </ion-item>
             <ion-item-options side="right">
-                <button ion-button clear item-end (click)="irChildView(item,slidingItem)">Ver</button>
+                <button ion-button clear color="rosado" item-end (click)="irChildView(item,slidingItem)">Ver</button>
             </ion-item-options>
         </ion-item-sliding>
     </ion-list>
