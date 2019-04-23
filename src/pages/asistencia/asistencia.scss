@@ -1,3 +1,21 @@
 page-asistencia {
-
+    ion-content {
+        /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#fce0e0+0,fccdcd+31,f5c7c7+70,ebbfbf+100 */
+        background: rgb(252, 224, 224);
+        /* Old browsers */
+        background: -moz-linear-gradient(top, rgba(252, 224, 224, 1) 0%, rgba(252, 205, 205, 1) 31%, rgba(245, 199, 199, 1) 70%, rgba(235, 191, 191, 1) 100%);
+        /* FF3.6-15 */
+        background: -webkit-linear-gradient(top, rgba(252, 224, 224, 1) 0%, rgba(252, 205, 205, 1) 31%, rgba(245, 199, 199, 1) 70%, rgba(235, 191, 191, 1) 100%);
+        /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(to bottom, rgba(252, 224, 224, 1) 0%, rgba(252, 205, 205, 1) 31%, rgba(245, 199, 199, 1) 70%, rgba(235, 191, 191, 1) 100%);
+        /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    }
+    .ion-item1 {
+        border-color: rgba(0, 0, 0, 0);
+        background-color: #fef3f3;
+        p,
+        h3 {
+            color: black;
+        }
+    }
 }

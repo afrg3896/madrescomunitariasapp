@@ -8,12 +8,19 @@
 
         </ion-buttons>
         <ion-title>Periodo: {{periodo.periodo | titlecase}}</ion-title>
+
+        <ion-buttons right>
+            <button ion-button (click)="downloadPdf()">
+                    <ion-icon name="open"></ion-icon>PDF</button>
+        </ion-buttons>
     </ion-navbar>
 </ion-header>
 
 <ion-content padding>
     <ion-scroll scrollX="true" scrollY="true" class="data-scroll">
+        <h2 text-center>Datos Antropométricos</h2>
         <table class="data-table">
+
             <tr class="header">
                 <td text-center>No.de Documento de Identidad (NUIP)</td>
                 <td text-center>Nombres</td>

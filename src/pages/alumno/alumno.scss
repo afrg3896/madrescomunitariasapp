@@ -1,25 +1,36 @@
 page-alumno {
     ion-content {
-        /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f7edf7+2,fff7fc+99 */
-        background: rgb(247, 237, 247);
+        /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#fdf6dd+0,fdefbf+35,fde79b+69,fdda66+100 */
+        background: rgb(253, 246, 221);
         /* Old browsers */
-        background: -moz-linear-gradient(-45deg, rgba(247, 237, 247, 1) 2%, rgba(255, 247, 252, 1) 99%);
+        background: -moz-linear-gradient(top, rgba(253, 246, 221, 1) 0%, rgba(253, 239, 191, 1) 35%, rgba(253, 231, 155, 1) 69%, rgba(253, 218, 102, 1) 100%);
         /* FF3.6-15 */
-        background: -webkit-linear-gradient(-45deg, rgba(247, 237, 247, 1) 2%, rgba(255, 247, 252, 1) 99%);
+        background: -webkit-linear-gradient(top, rgba(253, 246, 221, 1) 0%, rgba(253, 239, 191, 1) 35%, rgba(253, 231, 155, 1) 69%, rgba(253, 218, 102, 1) 100%);
         /* Chrome10-25,Safari5.1-6 */
-        background: linear-gradient(135deg, rgba(247, 237, 247, 1) 2%, rgba(255, 247, 252, 1) 99%);
+        background: linear-gradient(to bottom, rgba(253, 246, 221, 1) 0%, rgba(253, 239, 191, 1) 35%, rgba(253, 231, 155, 1) 69%, rgba(253, 218, 102, 1) 100%);
         /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    }
+    ion-title {
+        p {
+            color: white;
+        }
+    }
+    ion-icon {
+        color: white;
     }
     .ion-item1 {
         border-color: rgba(0, 0, 0, 0);
-        background-color: rgba(0, 0, 0, 0);
+        background-color: #fef7e0;
         p {
             color: black;
+        }
+        h2 {
+            font-weight: bold;
         }
     }
     .ion-item2 {
         border-color: rgba(0, 0, 0, 0);
-        background-color: rgba(0, 0, 0, 0);
+        background-color: #fef7e0;
         color: white;
     }
 }

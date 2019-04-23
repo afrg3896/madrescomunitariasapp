@@ -2,15 +2,17 @@
     <ion-navbar color="rosado">
         <ion-buttons left>
 
-            <button ion-button (click)="cerrar_modal()">
+            <button color="blanco" ion-button (click)="cerrar_modal()">
               Cerrar
           </button>
 
         </ion-buttons>
-        <ion-title text-center>Perfil del niño</ion-title>
+        <ion-title text-center>
+            <p>Perfil del niño</p>
+        </ion-title>
 
         <ion-buttons right>
-            <button ion-button (click)="actualizar()">Actualizar</button>
+            <button color="blanco" ion-button (click)="actualizar()">Actualizar</button>
         </ion-buttons>
     </ion-navbar>
 </ion-header>
@@ -25,13 +27,18 @@
                 <img *ngIf="imagenPreview" [src]="imagenPreview">
                 <img *ngIf="item.imagen" [src]="item.imagen">
             </ion-item>
-            <button color="rosado" ion-button (click)="seleccionar_foto()">Seleccionar Foto</button>
+            <button class="button1" color="rosado" ion-button (click)="seleccionar_foto()"> <p>Seleccionar Foto</p> </button>
+
             <h1>{{item.nombre}} {{item.apellido}}</h1>
+            <p>No. Documento: {{item.nuip}}</p>
+            <p>Nacimiento: {{item.fecha}}</p>
             <p>Edad: {{item.edad}}</p>
-            <p>Direccion: {{item.direccion}}</p>
+            <p>Dirección: {{item.direccion}}</p>
             <p>Comentarios: {{item.info}}</p>
+            <br>
             <h2>Información del Pariente</h2>
             <p>{{item.parentname}} {{item.parentlastname}}</p>
+            <p>No. Documento: {{item.cedula}}</p>
             <p>Parentesco: {{item.parentesco}}</p>
             <p>Edad: {{item.parentage}}</p>
         </ion-item>

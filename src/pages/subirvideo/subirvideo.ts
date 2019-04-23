@@ -44,7 +44,8 @@ export class SubirvideoPage {
       apellido:this.nombre['apellido'],
       rating:0,
       titulo:this.titulo,
-      tipo:this.tipo
+      tipo:this.tipo,
+      fecha:Date.now()
     }
     this._cap.cargar_video_firebase(archivo)
         .then(()=>{
@@ -87,7 +88,7 @@ export class SubirvideoPage {
           let link = this.youtube + data.Link;
           console.log(link);
           let nombrearchivo = new Date().valueOf().toString();
-          this._cap.cargar_videos(this.titulo,link,this.nombre['nombre'],this.nombre['apellido'],0,nombrearchivo,this.tipoyoutbe);
+          this._cap.cargar_videos(this.titulo,link,this.nombre['nombre'],this.nombre['apellido'],0,nombrearchivo,this.tipoyoutbe,Date.now());
           }
         }
       ]

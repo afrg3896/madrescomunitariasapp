@@ -2,12 +2,14 @@
     <ion-navbar color="rosado">
         <ion-buttons left>
 
-            <button ion-button (click)="cerrar_modal()">
+            <button color="blanco" ion-button (click)="cerrar_modal()">
                 Cerrar
             </button>
 
         </ion-buttons>
-        <ion-title>Agregar Niño</ion-title>
+        <ion-title>
+            <p> Agregar Niño</p>
+        </ion-title>
     </ion-navbar>
 </ion-header>
 
@@ -152,7 +154,7 @@
         </ion-list>
 
         <div padding>
-            <button ion-button color="rosado" block type="submit" [disabled]="!myFormChild.valid">Añadir</button>
+            <button class="buttonsubmit" ion-button color="rosado" block type="submit" [disabled]="!myFormChild.valid"> <p>Añadir</p></button>
         </div>
     </form>
 </ion-content>

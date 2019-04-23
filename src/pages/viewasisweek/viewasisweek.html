@@ -6,7 +6,7 @@
 
 <ion-content padding>
     <ion-list>
-        <ion-item no-lines>
+        <ion-item class="ion-item1" no-lines>
             <ion-label>Semana</ion-label>
             <ion-select [(ngModel)]="week" (ionChange)="onSelectChange($event)">
                 <ion-option *ngFor="let semana of (asistenciaweek|async)" value={{semana.key}}>{{semana.periodo}}</ion-option>
@@ -14,13 +14,13 @@
         </ion-item>
     </ion-list>
     <ion-list *ngIf="week">
-        <ion-item *ngFor="let item of (asistenciadia|async)">
+        <ion-item class="ion-item1" *ngFor="let item of (asistenciadia|async)">
             <ion-thumbnail item-start>
                 <img src="assets/documento.png">
             </ion-thumbnail>
             <h3>Dia</h3>
             <p>{{item.periodo}}</p>
-            <button ion-button clear item-end (click)="viewasisdia(item)">Ver</button>
+            <button ion-button color="rojo" clear item-end (click)="viewasisdia(item)">Ver</button>
         </ion-item>
     </ion-list>
 </ion-content>

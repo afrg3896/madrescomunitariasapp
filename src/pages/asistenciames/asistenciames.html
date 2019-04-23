@@ -7,7 +7,7 @@
 <ion-content padding>
     <ion-list>
         <h3 text-center>Período de la toma de datos</h3>
-        <ion-item no-lines>
+        <ion-item class="ion-item1" no-lines>
             <ion-label>Seleccionar Período</ion-label> <br>
             <ion-select [(ngModel)]="periodox" (ionChange)="onSelectChange($event)">
                 <ion-option value="Enero">Enero</ion-option>
@@ -24,6 +24,6 @@
                 <ion-option value="Diciembre">Diciembre</ion-option>
             </ion-select>
         </ion-item>
-        <button ion-button block (click)="irasistenciaweek()">Continuar</button>
+        <button ion-button color="rojo" block (click)="irasistenciaweek()">Continuar</button>
     </ion-list>
 </ion-content>

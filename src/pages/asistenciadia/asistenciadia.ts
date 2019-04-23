@@ -35,6 +35,7 @@ export class AsistenciadiaPage {
   }
   motivo:any[] = [];
   radio:any[] =[];
+  estaactivo:boolean=false;
   constructor(public navCtrl: NavController, public navParams: NavParams,public alertCtrl: AlertController,
               public afAuth: AngularFireAuth, public afDatabase:AngularFireDatabase) {
     this.asistenciayearkey = this.navParams.get('year');
@@ -57,11 +58,15 @@ export class AsistenciadiaPage {
 
   }
 
-  reviewChange(e:any,i:any){
+  onSelectChange($event){
     
   }
-
   updated(value,i:any,item:any,motivo:any){
+    if(this.radio[i]){
+      this.estaactivo =true;
+    }else{
+      this.estaactivo =false;
+    }
     this.asiste = this.info.length;
     let obj={
       nuip: item.nuip,

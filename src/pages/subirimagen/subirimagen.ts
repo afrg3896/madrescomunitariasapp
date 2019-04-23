@@ -41,13 +41,10 @@ export class SubirimagenPage {
     }
     
     this.camera.getPicture(options).then((imageData) => {
-     // imageData is either a base64 encoded string or a file URI
-     // If it's base64 (DATA_URL):
      console.log(imageData);
      this.imagenPreview = 'data:image/jpeg;base64,' + imageData;
      this.imagen64 = imageData;
     }, (err) => {
-     // Handle error
      console.log('Error en camara', JSON.stringify(err));
     });
   }
@@ -63,13 +60,10 @@ export class SubirimagenPage {
     }
     
     this.camera.getPicture(options).then((imageData) => {
-     // imageData is either a base64 encoded string or a file URI
-     // If it's base64 (DATA_URL):
      console.log(imageData);
      this.imagenPreview = 'data:image/jpeg;base64,' + imageData;
      this.imagen64 = imageData;
     }, (err) => {
-     // Handle error
      console.log('Error en camara', JSON.stringify(err));
     });
   }
@@ -81,7 +75,8 @@ export class SubirimagenPage {
       apellido:this.nombre['apellido'],
       rating:0,
       titulo:this.titulo,
-      tipo:this.tipo
+      tipo:this.tipo,
+      fecha: Date.now()
     }
     console.log(archivo.nombre);
     this._cap.cargar_imagen_firebase(archivo)

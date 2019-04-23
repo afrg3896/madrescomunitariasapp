@@ -6,11 +6,13 @@
             </button>
 
         </ion-buttons>
-        <ion-title>Niños</ion-title>
+        <ion-title>
+            <p>Niños</p>
+        </ion-title>
 
         <ion-buttons right>
             <button ion-button (click)="addmodalChild()">
-            <ion-icon name="person-add"></ion-icon>
+            <ion-icon  name="person-add"></ion-icon>
           </button>
 
         </ion-buttons>
@@ -33,7 +35,8 @@
 
             </ion-item>
             <ion-item-options side="right">
-                <button ion-button clear color="rosado" item-end (click)="irChildView(item,slidingItem)">Ver</button>
+                <button style="color:white" ion-button color="rosado" item-end (click)="irChildView(item,slidingItem)"> <ion-icon name="person"></ion-icon> Ver</button>
+                <button ion-button color="danger" item-end (click)="eliminar(item,slidingItem)"><ion-icon name="trash"></ion-icon>Eliminar</button>
             </ion-item-options>
         </ion-item-sliding>
     </ion-list>

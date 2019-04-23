@@ -60,4 +60,8 @@ export class AlumnoPage {
     modal.present();
     slidingItem.close();
   }
+  eliminar(item,slidingItem){
+    this.afDatabase.list(`/usuarios/${this.userid}/children/${item.uid}`).remove();
+    slidingItem.close();
+  }
 }

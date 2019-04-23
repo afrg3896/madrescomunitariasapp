@@ -58,7 +58,7 @@ export class ModalramPage {
     this.ram_create(this.item.parentname,this.item.parentlastname,this.item.cedula,this.myForm.value.cedulaexpedida,this.item.nombre,
                     this.item.apellido, this.item.nuip,this.u.nombre, this.u.apellido, this.u.cedula,
                     this.myForm.value.servicio,this.u.municipio,Date.now());
-                    this.cerrar_modal();
+                    
   }
 
   ram_create(nombrep:string,apellidop:string,cedulap:string,expedicionp:string,nombre:string,apellido:string,nuip:string,
@@ -79,7 +79,7 @@ export class ModalramPage {
                 this.afAuth.authState.take(1).subscribe(aut =>{
                   this.ram.key = this.afDatabase.database.ref('usuarios/' + this.userid + '/formularios/ram').push().key;
                   this.afDatabase.object(`usuarios/${this.userid}/formularios/ram/${this.ram.key}`).set(this.ram)
-                  .then(()=>this.navCtrl.push(AddramPage));
+                  .then(()=>this.cerrar_modal());
                 });
 
   }

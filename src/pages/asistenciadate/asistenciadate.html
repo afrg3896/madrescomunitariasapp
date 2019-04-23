@@ -7,7 +7,7 @@
 <ion-content padding>
     <ion-list>
         <h3 text-center>Fecha de la toma de datos</h3>
-        <ion-item no-lines>
+        <ion-item class="ion-item1" no-lines>
             <ion-label>Seleccionar Año</ion-label> <br>
             <ion-select [(ngModel)]="yearx" (ionChange)="onSelectChange($event)">
                 <ion-option value="2019">2019</ion-option>
@@ -16,7 +16,7 @@
                 <ion-option value="2022">2022</ion-option>
             </ion-select>
         </ion-item>
-        <button ion-button block (click)="irasistenciames()">Continuar</button>
+        <button ion-button color="rojo" block (click)="irasistenciames()">Continuar</button>
 
     </ion-list>
 </ion-content>

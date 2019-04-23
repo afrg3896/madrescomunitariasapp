@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, ModalController } from 'ionic-angular';
+import { IonicPage, ModalController, AlertController } from 'ionic-angular';
 import { SubirimagenPage } from '../subirimagen/subirimagen';
 import { CargaArchivoProvider } from '../../providers/carga-archivo/carga-archivo';
 import { ImageviewPage } from '../imageview/imageview';
@@ -19,7 +19,8 @@ export class ContenidoPage {
   contenido: string = 'imagenes';
   posts: Observable<any[]>;
   videos: Observable<any[]>;
-  constructor(private modalCtrl:ModalController, public _cap:CargaArchivoProvider, public loadingCtrl: LoadingController, public afDB:AngularFireDatabase) {
+  constructor(private modalCtrl:ModalController, public _cap:CargaArchivoProvider, public loadingCtrl: LoadingController, 
+              public afDB:AngularFireDatabase,public alertCtrl: AlertController) {
     this.loadingCtrl.create({
       content: "Por Favor Espere...",
       duration: 2000
@@ -53,4 +54,5 @@ export class ContenidoPage {
     let modal = this.modalCtrl.create(CalificarPage, {'post':post});
     modal.present();
   }
+
 }

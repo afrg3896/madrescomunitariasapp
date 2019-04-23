@@ -1,20 +1,20 @@
 <ion-menu left [content]="content">
-    <ion-header>
+    <ion-header no-border>
         <ion-toolbar>
             <ion-item no-lines *ngFor="let item of info">
                 <ion-thumbnail item-start>
                     <img *ngIf="item.imagen === ''" src="assets/hogar.png">
                     <img *ngIf="item.imagen" [src]="item.imagen">
                 </ion-thumbnail>
-                <ion-title>{{item.nombre}}</ion-title>
+                <ion-title>{{item.nombre}}<br>{{item.apellido}}</ion-title>
             </ion-item>
 
         </ion-toolbar>
     </ion-header>
 
-    <ion-content text-center>
+    <ion-content>
         <ion-list>
-            <ion-item ion-item menuClose *ngFor="let p of pages" (click)="openPage(p)">
+            <ion-item no-lines ion-item menuClose *ngFor="let p of pages" (click)="openPage(p)">
                 <ion-icon *ngIf="p.title === 'Dashboard'" name="home"></ion-icon>
                 <ion-icon *ngIf="p.title === 'Perfil'" name="contact"></ion-icon>
                 {{ p.title }}

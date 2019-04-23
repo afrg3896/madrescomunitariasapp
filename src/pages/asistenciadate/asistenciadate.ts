@@ -69,7 +69,6 @@ export class AsistenciadatePage {
 
     }
     this.sw=0;
-
   }
 
   create_year(year:string){

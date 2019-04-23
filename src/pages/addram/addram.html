@@ -12,14 +12,14 @@
 
 <ion-content padding>
     <ion-list>
-        <ion-item *ngFor="let item of (ram|async)">
+        <ion-item class="ion-item1" *ngFor="let item of (ram|async)">
             <ion-thumbnail item-start>
                 <img src="assets/documento.png">
             </ion-thumbnail>
             <h3>Formato Veracidad de Padres</h3>
             <p>{{item.childnombre}} {{item.childapellido}} {{item.childnuip}}</p>
             <p>Fecha: {{item.fecha | date}}</p>
-            <button ion-button clear item-end (click)="viewRam(item)">Ver</button>
+            <button ion-button color="rojo" clear item-end (click)="viewRam(item)">Ver</button>
         </ion-item>
     </ion-list>
 </ion-content>

@@ -34,6 +34,7 @@ import { ImagePicker } from '@ionic-native/image-picker';
 import { SocialSharing } from '@ionic-native/social-sharing';
 import { MediaCapture } from '@ionic-native/media-capture';
 import { File } from '@ionic-native/file';
+import { FileOpener } from '@ionic-native/file-opener';
 import { SpinnerDialog } from '@ionic-native/spinner-dialog';
 //Provider
 import { CargaArchivoProvider } from '../providers/carga-archivo/carga-archivo';
@@ -169,6 +170,7 @@ export const firebaseConfig = {
     SocialSharing,
     SpinnerDialog,
     File,
+    FileOpener,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     CargaArchivoProvider
   ]

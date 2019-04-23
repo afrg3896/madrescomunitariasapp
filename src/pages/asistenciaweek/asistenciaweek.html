@@ -7,7 +7,7 @@
 <ion-content padding>
     <ion-list>
         <h3 text-center>Seleccionar Semana</h3>
-        <ion-item no-lines>
+        <ion-item class="ion-item1" no-lines>
             <ion-label>Semana</ion-label> <br>
             <ion-select [(ngModel)]="semana" (ionChange)="onSelectChange($event)">
                 <ion-option value="Primera">Primera Semana</ion-option>
@@ -17,6 +17,6 @@
             </ion-select>
         </ion-item>
 
-        <button ion-button block (click)="irasistenciadia()">Continuar</button>
+        <button ion-button color="rojo" block (click)="irasistenciadia()">Continuar</button>
     </ion-list>
 </ion-content>

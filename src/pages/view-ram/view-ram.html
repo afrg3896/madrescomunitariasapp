@@ -7,20 +7,26 @@
         </button>
 
         </ion-buttons>
-        <ion-title>{{item.childnombre}} {{item.childapellido}} <br> {{item.fecha | date}}</ion-title>
+        <ion-title text-center>{{item.childnombre}} {{item.childapellido}} <br> {{item.fecha | date}}</ion-title>
+
+        <ion-buttons right>
+            <button ion-button (click)="downloadPdf()">
+                    <ion-icon name="open"></ion-icon>PDF</button>
+        </ion-buttons>
     </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-    <h2 text-center>Formato Veracidad Informacion Ficha Caracterización Padres</h2>
-    <p>Yo {{item.acudientenombre}} , identificado con Cédula de Ciudadanía No. {{item.acudientecedula}} de {{item.acudienteexpedicion}} , padre / madre o acudiente de la/el/ niño(a) {{item.childnombre}} {{item.childapellido}}, identificado con NUIP No. {{item.childnuip}}
-        , usuario de la unidad de servicio {{item.servicio}}, manifiesto que la información registrada en la ficha de caracterización es verdadera, correcta y completa. <br><br> En constancia se firma en {{item.lugar}} , {{item.fecha | date}}
+    <h2 text-center>Formato Veracidad Información Ficha Caracterización Padres</h2>
+    <p>Yo {{item.acudientenombre}} {{item.acudienteapellido}} , identificado con Cédula de Ciudadanía No. {{item.acudientecedula}} de {{item.acudiendeexpedicion}} , padre / madre o acudiente de la/el/ niño(a) {{item.childnombre}} {{item.childapellido}},
+        identificado con NUIP No. {{item.childnuip}} , usuario de la unidad de servicio {{item.servicio}}, manifiesto que la información registrada en la ficha de caracterización es verdadera, correcta y completa. <br><br> En constancia se firma en {{item.lugar}}
+        , {{item.fecha | date}} .
     </p>
     <h6 text-center>Datos del padre o acudiente de la/el niño(a)</h6>
     <p>Nombre: {{item.acudientenombre}} {{item.acudienteapellido}}</p>
     <p>CC. No. {{item.acudientecedula}}</p>
 
-    <h6 text-center>Datos del profesional o Agente Educativo que diligencio la ficha</h6>
+    <h6 text-center>Datos del profesional o Agente Educativo que diligenció la ficha</h6>
     <p>Nombre: {{item.madrenombre}} {{item.madreapellido}}</p>
     <p>CC. No. {{item.madrecedula}}</p>
     <br>

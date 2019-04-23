@@ -2,7 +2,7 @@
     <ion-navbar color="rojo">
         <ion-title>Asistencia</ion-title>
         <ion-buttons right>
-            <button ion-button (click)="crear_asistencia()">Crear Asistencia</button>
+            <button ion-button [disabled]="!estaactivo" (click)="crear_asistencia()">Crear</button>
         </ion-buttons>
     </ion-navbar>
 </ion-header>
@@ -10,9 +10,9 @@
 <ion-content padding>
     <ion-list>
         <h3 text-center>Lista de Asistencia</h3>
-        <ion-item no-lines>
+        <ion-item class="ion-item1" no-lines>
             <ion-label>Día</ion-label> <br>
-            <ion-select [(ngModel)]="dia" (ionChange)="onSelectChange($event)">
+            <ion-select [(ngModel)]="dia">
                 <ion-option value="Lunes">Lunes</ion-option>
                 <ion-option value="Martes">Martes</ion-option>
                 <ion-option value="Miercoles">Miércoles</ion-option>

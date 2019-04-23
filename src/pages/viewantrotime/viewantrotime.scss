@@ -1,24 +1,44 @@
 page-viewantrotime {
-    .data-scroll {
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-    }
-    .date-table {
-        min-width: 900px;
-    }
-    tr,
-    td {
-        border: 1px solid #000;
-        font-size: 10pt;
-        font-family: Cambria, "Times New Roman", Times, serif;
-        margin: 15px;
-        padding: 15px;
-    }
-    .header {
-        background: rgb(184, 189, 223);
-        font-weight: bold;
+    ion-content {
+        /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#fce0e0+0,fccdcd+31,f5c7c7+70,ebbfbf+100 */
+        background: rgb(252, 224, 224);
+        /* Old browsers */
+        background: -moz-linear-gradient(top, rgba(252, 224, 224, 1) 0%, rgba(252, 205, 205, 1) 31%, rgba(245, 199, 199, 1) 70%, rgba(235, 191, 191, 1) 100%);
+        /* FF3.6-15 */
+        background: -webkit-linear-gradient(top, rgba(252, 224, 224, 1) 0%, rgba(252, 205, 205, 1) 31%, rgba(245, 199, 199, 1) 70%, rgba(235, 191, 191, 1) 100%);
+        /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(to bottom, rgba(252, 224, 224, 1) 0%, rgba(252, 205, 205, 1) 31%, rgba(245, 199, 199, 1) 70%, rgba(235, 191, 191, 1) 100%);
+        /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        h2 {
+            text-align: center;
+        }
+        .data-scroll {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+        .date-table {
+            min-width: 900px;
+        }
+        tr,
+        td {
+            border: 1px solid #000;
+            font-size: 10pt;
+            font-family: Cambria, "Times New Roman", Times, serif;
+            margin: 15px;
+            padding: 15px;
+        }
+        tr {
+            background-color: white;
+        }
+        .header {
+            background: rgb(231, 125, 125);
+            font-weight: bold;
+            td {
+                color: white;
+            }
+        }
     }
 }
