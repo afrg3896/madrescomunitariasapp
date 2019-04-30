@@ -4,6 +4,9 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { AsistenciaChild } from '../../models/asistenciachild.model';
 import { Antroperiodo } from '../../models/antroperiodo.model';
+import { Asistencias } from '../../models/asistencia.model';
+import { CargaArchivoProvider } from '../../providers/carga-archivo/carga-archivo';
+import { AsistenciaPage } from '../asistencia/asistencia';
 
 @IonicPage()
 @Component({
@@ -29,15 +32,16 @@ export class AsistenciadiaPage {
     motivo:'',
     key:''
   }
-  dias: Antroperiodo ={
-    periodo:'',
+  dias: Asistencias={
+    dia:'',
+    fecha:0,
     key:''
   }
   motivo:any[] = [];
   radio:any[] =[];
   estaactivo:boolean=false;
   constructor(public navCtrl: NavController, public navParams: NavParams,public alertCtrl: AlertController,
-              public afAuth: AngularFireAuth, public afDatabase:AngularFireDatabase) {
+              public afAuth: AngularFireAuth, public afDatabase:AngularFireDatabase, public cap:CargaArchivoProvider) {
     this.asistenciayearkey = this.navParams.get('year');
     this.asistenciameskey = this.navParams.get('mes');
     this.asistenciasemanakey = this.navParams.get('semana');
@@ -81,7 +85,8 @@ export class AsistenciadiaPage {
 }
 
   crear_asistencia(){
-    this.dias.periodo = this.dia;
+    this.dias.dia = this.dia;
+    this.dias.fecha = Date.now();
     this.afAuth.authState.take(1).subscribe(aut =>{
       this.dias.key = this.afDatabase.database.ref('usuarios/' + this.userid + '/formularios/asistencia/' + this.asistenciayearkey + '/mes/'+
                       this.asistenciameskey + '/semana/' + this.asistenciasemanakey + '/dias/').push().key;
@@ -104,7 +109,10 @@ export class AsistenciadiaPage {
             a.key = this.afDatabase.database.ref('usuarios/' + this.userid + '/formularios/asistencia/' + this.asistenciayearkey + '/mes/'+
                             this.asistenciameskey + '/semana/' + this.asistenciasemanakey + '/dias/' + this.dias.key + '/lista/').push().key;
             this.afDatabase.object(`usuarios/${this.userid}/formularios/asistencia/${this.asistenciayearkey}/mes/${this.asistenciameskey}/semana/${this.asistenciasemanakey}/dias/${this.dias.key}/lista/${a.key}`).set(a)
-            .then();
+            .then(()=>{
+              this.navCtrl.push(AsistenciaPage);
+              this.cap.mostrar_toast('Formulario creado exitosamente');
+            });
         });
         }
       });

@@ -41,6 +41,20 @@ export class HomePage {
     });
   }
 
+  doRefresh(refresher){
+    
+    setTimeout(() => {
+      this.info=[];
+      this.getdata(this.userid).then((res:any)=>{
+        this.u=res;
+        this.u.map(element=>{
+          this.info.push(element);
+        })
+      });
+      refresher.complete();
+    }, 1500);
+  }
+
   openPage(page){
     this.nav.setRoot(page.component, {openTab:page.openTab})
   }

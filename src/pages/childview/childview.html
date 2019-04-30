@@ -7,13 +7,9 @@
           </button>
 
         </ion-buttons>
-        <ion-title text-center>
+        <ion-title>
             <p>Perfil del niño</p>
         </ion-title>
-
-        <ion-buttons right>
-            <button color="blanco" ion-button (click)="actualizar()">Actualizar</button>
-        </ion-buttons>
     </ion-navbar>
 </ion-header>
 
@@ -27,14 +23,13 @@
                 <img *ngIf="imagenPreview" [src]="imagenPreview">
                 <img *ngIf="item.imagen" [src]="item.imagen">
             </ion-item>
-            <button class="button1" color="rosado" ion-button (click)="seleccionar_foto()"> <p>Seleccionar Foto</p> </button>
 
             <h1>{{item.nombre}} {{item.apellido}}</h1>
             <p>No. Documento: {{item.nuip}}</p>
             <p>Nacimiento: {{item.fecha}}</p>
             <p>Edad: {{item.edad}}</p>
             <p>Dirección: {{item.direccion}}</p>
-            <p>Comentarios: {{item.info}}</p>
+            <p>Observaciones: {{item.info}}</p>
             <br>
             <h2>Información del Pariente</h2>
             <p>{{item.parentname}} {{item.parentlastname}}</p>

@@ -60,6 +60,8 @@ import { AsistenciadiaPage } from '../pages/asistenciadia/asistenciadia';
 import { ViewasistenciaPage } from '../pages/viewasistencia/viewasistencia';
 import { ViewasisweekPage } from '../pages/viewasisweek/viewasisweek';
 import { ViewasisdiaPage } from '../pages/viewasisdia/viewasisdia';
+import { EditperfilPage } from '../pages/editperfil/editperfil';
+import { EditchildPage } from '../pages/editchild/editchild';
 
 
 
@@ -109,11 +111,15 @@ export const firebaseConfig = {
     AsistenciadiaPage,
     ViewasistenciaPage,
     ViewasisweekPage,
-    ViewasisdiaPage
+    ViewasisdiaPage,
+    EditperfilPage,
+    EditchildPage
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(MyApp,{
+      backButtonText: 'Atras'
+    }),
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
@@ -158,7 +164,9 @@ export const firebaseConfig = {
     AsistenciadiaPage,
     ViewasistenciaPage,
     ViewasisweekPage,
-    ViewasisdiaPage
+    ViewasisdiaPage,
+    EditperfilPage,
+    EditchildPage
   ],
   providers: [
     StatusBar,

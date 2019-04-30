@@ -43,7 +43,7 @@ export class CargaArchivoProvider {
               this.mostrar_toast('imagen cargada correctamente');
               uploadTask.snapshot.ref.getDownloadURL().then(urlImage => {
                 this.cargar_imagenes(archivo.titulo, urlImage,archivo.nombre,archivo.apellido,archivo.rating, nombreArchivo, archivo.tipo,archivo.fecha);
-                 this.mostrar_toast('URL:' + urlImage);
+                 
                 }).catch((error) => {
                          console.log(error);
                 });
@@ -103,7 +103,9 @@ export class CargaArchivoProvider {
     return promesa;
   }
 
-  cargar_imgchild_firebase(imagen:string,userid:string,id:any){
+  cargar_imgchild_firebase(imagen:string,userid:string,id:any,nombre:string,apellido:string,nuip:string,fecha:string,edad:string,genero:string,
+                            info:string,direccion:string,parentname:string,parentlastname:string,cedula:string,parentage:string,
+                            parentcivil:string,parentesco:string){
     let promesa = new Promise((resolve,reject)=>{
       this.mostrar_toast('Subiendo imagen...');
       let storeRef = firebase.storage().ref();
@@ -124,8 +126,9 @@ export class CargaArchivoProvider {
               
               this.mostrar_toast('imagen cargada correctamente');
               uploadTask.snapshot.ref.getDownloadURL().then(urlImage => {
-                this.cargar_img_child(urlImage,userid,id);
-                 this.mostrar_toast('URL:' + urlImage);
+                this.cargar_img_child(urlImage,userid,id,nombre,apellido,nuip,fecha,edad,genero,info,direccion,parentname,
+                                      parentlastname,cedula,parentage,parentcivil,parentesco);
+                 
                 }).catch((error) => {
                          console.log(error);
                 });
@@ -137,7 +140,7 @@ export class CargaArchivoProvider {
 
     return promesa;
   }
-  cargar_imguser_firebase(imagen:string,userid:string){
+  cargar_imguser_firebase(imagen:string,userid:string,nombre:string,apellido:string,cedula:string,celular:string,direccion:string,municipio:string,region:string){
     let promesa = new Promise((resolve,reject)=>{
       this.mostrar_toast('Subiendo imagen...');
       let storeRef = firebase.storage().ref();
@@ -158,8 +161,8 @@ export class CargaArchivoProvider {
               
               this.mostrar_toast('imagen cargada correctamente');
               uploadTask.snapshot.ref.getDownloadURL().then(urlImage => {
-                this.cargar_img_user(urlImage,userid);
-                 this.mostrar_toast('URL:' + urlImage);
+                this.cargar_img_user(urlImage,userid,nombre,apellido,cedula,celular,direccion,municipio,region);
+                 
                 }).catch((error) => {
                          console.log(error);
                 });
@@ -205,13 +208,73 @@ export class CargaArchivoProvider {
     this.afDB.object(`/videos/${nombreArchivo}/`).update(post);
   }
 
-  cargar_img_child(url:string,userid:string, uid:any){
-    this.afDB.object(`/usuarios/${userid}/children/${uid}`).update({imagen:url});
+  cargar_img_child(url:string,userid:string, uid:any,nombre:string,apellido:string,nuip:string,fecha:string,edad:string,genero:string,
+                    info:string,direccion:string,parentname:string,parentlastname:string,cedula:string,parentage:string,parentcivil:string,
+                    parentesco:string){
+    this.afDB.object(`/usuarios/${userid}/children/${uid}`).update({
+      nombre:nombre,
+      apellido:apellido,
+      nuip:nuip,
+      fecha:fecha,
+      edad:edad,
+      genero:genero,
+      info:info,
+      direccion:direccion,
+      parentname:parentname,
+      parentlastname:parentlastname,
+      cedula:cedula,
+      parentage:parentage,
+      parentcivil:parentcivil,
+      parentesco:parentesco,
+      imagen:url
+    });
   }
-  cargar_img_user(url:string,userid:string){
-    this.afDB.object(`/usuarios/${userid}/info/`).update({imagen:url});
+  cargar_img_user(url:string,userid:string,nombre:string,apellido:string,cedula:string,celular:string,direccion:string,municipio:string,region:string){
+    this.afDB.object(`/usuarios/${userid}/info/`).update({
+      nombre:nombre,
+      apellido:apellido,
+      cedula:cedula,
+      celular:celular,
+      direccion:direccion,
+      municipio:municipio,
+      region:region,
+      imagen:url
+    });
   }
 
+  cargar_dato_user(userid:string,nombre:string,apellido:string,cedula:string,celular:string,direccion:string,municipio:string,region:string){
+    this.afDB.object(`/usuarios/${userid}/info/`).update({
+      nombre:nombre,
+      apellido:apellido,
+      cedula:cedula,
+      celular:celular,
+      direccion:direccion,
+      municipio:municipio,
+      region:region
+    });
+  }
+
+  cargar_dato_child(userid:string, uid:any,nombre:string,apellido:string,nuip:string,fecha:string,edad:string,genero:string,
+    info:string,direccion:string,parentname:string,parentlastname:string,cedula:string,parentage:string,parentcivil:string,
+    parentesco:string){
+
+      this.afDB.object(`/usuarios/${userid}/children/${uid}`).update({
+        nombre:nombre,
+        apellido:apellido,
+        nuip:nuip,
+        fecha:fecha,
+        edad:edad,
+        genero:genero,
+        info:info,
+        direccion:direccion,
+        parentname:parentname,
+        parentlastname:parentlastname,
+        cedula:cedula,
+        parentage:parentage,
+        parentcivil:parentcivil,
+        parentesco:parentesco
+      });
+  }
   cargar_comentario(nombre:string, apellido:string, imagen:string, fecha:number, comentario:string,llave:string,tipo:string){
     let comment:Comentario = {
       nombre:nombre,

@@ -1,11 +1,10 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ViewController, Platform} from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController, Platform, LoadingController } from 'ionic-angular';
 import { File } from '@ionic-native/file';
 import { FileOpener } from '@ionic-native/file-opener';
 import pdfMake from 'pdfmake/build/pdfmake';
 import pdfFonts from 'pdfmake/build/vfs_fonts';
 import { icbf } from '../../dataimg/icbf.dataimg';
-import { CargaArchivoProvider } from '../../providers/carga-archivo/carga-archivo';
 
 
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
@@ -19,10 +18,13 @@ export class ViewRamPage {
   item:any;
   pdfObj = null;
   imagenicbf = icbf;
+  loading:any;
   constructor(public navCtrl: NavController, public navParams: NavParams, private viewCtrl: ViewController, public platform:Platform,
-              public file:File, public fileOpener:FileOpener,public cap:CargaArchivoProvider) {
-    this.item = this.navParams.get('item');
-    console.log(this.item);
+              public file:File, public fileOpener:FileOpener,public loadingCtrl: LoadingController) {
+                this.item = this.navParams.get('item');
+                this.loading = this.loadingCtrl.create({
+                  content: "Generando archivo PDF"
+                });
   }
 
   cerrar_modal(){
@@ -32,11 +34,12 @@ export class ViewRamPage {
   downloadPdf(){
     this.createPdf();
     if (this.platform.is('cordova')) {
-      this.cap.mostrar_toast('Generando archivo pdf');
+      this.loading.present();
       this.pdfObj.getBuffer((buffer) => {
         var blob = new Blob([buffer], { type: 'application/pdf' });
-        this.file.writeFile(this.file.dataDirectory, 'myletter.pdf', blob, { replace: true }).then(fileEntry => {
-          this.fileOpener.open(this.file.dataDirectory + 'myletter.pdf', 'application/pdf');
+        this.file.writeFile(this.file.dataDirectory, 'ficha_caracteristica_padres.pdf', blob, { replace: true }).then(fileEntry => {
+          this.loading.dismiss();
+          this.fileOpener.open(this.file.dataDirectory + 'ficha_caracteristica_padres.pdf', 'application/pdf');
         })
       });
     } else {

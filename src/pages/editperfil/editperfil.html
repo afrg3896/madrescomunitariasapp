@@ -1,0 +1,50 @@
+<ion-header>
+    <ion-navbar color="primary">
+        <ion-title>Editar Perfil</ion-title>
+        <ion-buttons right>
+            <button ion-button (click)="actualizar()">Actualizar</button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-list>
+        <ion-item text-center *ngFor="let item of info">
+            <ion-item text-center>
+                <img *ngIf="item.imagen === ''  && !imagenPreview" src="assets/hogar.png">
+                <img *ngIf="imagenPreview" [src]="imagenPreview">
+                <img *ngIf="item.imagen && !imagenPreview" [src]="item.imagen">
+            </ion-item>
+            <button ion-button round (click)="seleccionar_foto()">Seleccionar Foto</button>
+            <ion-item>
+                <ion-icon name="create" item-left></ion-icon>
+                <ion-input text-center [(ngModel)]="nombre" type="text"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-icon name="create" item-left></ion-icon>
+                <ion-input text-center [(ngModel)]="apellido" type="text"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-icon name="create" item-left></ion-icon>
+                <ion-input text-center [(ngModel)]="cedula" type="text"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-icon name="create" item-left></ion-icon>
+                <ion-input text-center [(ngModel)]="celular" type="text"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-icon name="create" item-left></ion-icon>
+                <ion-input text-center [(ngModel)]="direccion" type="text"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-icon name="create" item-left></ion-icon>
+                <ion-input text-center [(ngModel)]="municipio" type="text"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-icon name="create" item-left></ion-icon>
+                <ion-input text-center [(ngModel)]="region" type="text"></ion-input>
+            </ion-item>
+
+        </ion-item>
+    </ion-list>
+</ion-content>

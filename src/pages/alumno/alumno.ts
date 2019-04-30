@@ -6,6 +6,7 @@ import { AngularFireDatabase } from '@angular/fire/database';
 import { ChildviewPage } from '../childview/childview';
 
 import { Observable } from 'rxjs/Observable';
+import { EditchildPage } from '../editchild/editchild';
 
 @IonicPage()
 @Component({
@@ -62,6 +63,12 @@ export class AlumnoPage {
   }
   eliminar(item,slidingItem){
     this.afDatabase.list(`/usuarios/${this.userid}/children/${item.uid}`).remove();
+    slidingItem.close();
+  }
+
+  irEditar(item:any,slidingItem: ItemSliding){
+    let modal = this.modalCtrl.create(EditchildPage, {'item':item});
+    modal.present();
     slidingItem.close();
   }
 }

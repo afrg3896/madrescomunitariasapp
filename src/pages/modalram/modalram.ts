@@ -5,6 +5,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { Ram } from '../../models/ram.model';
 import { AddramPage } from '../addram/addram';
+import { CargaArchivoProvider } from '../../providers/carga-archivo/carga-archivo';
 
 @IonicPage()
 @Component({
@@ -34,7 +35,8 @@ export class ModalramPage {
       key:''
   }
   constructor(public navCtrl: NavController, public navParams: NavParams, private viewCtrl: ViewController,
-              public fb: FormBuilder, public afAuth: AngularFireAuth, public afDatabase:AngularFireDatabase) {
+              public fb: FormBuilder, public afAuth: AngularFireAuth, public afDatabase:AngularFireDatabase,
+              public cap:CargaArchivoProvider) {
                 this.buildForm();
                 this.item = this.navParams.get('item');
                 console.log(this.item);
@@ -79,7 +81,10 @@ export class ModalramPage {
                 this.afAuth.authState.take(1).subscribe(aut =>{
                   this.ram.key = this.afDatabase.database.ref('usuarios/' + this.userid + '/formularios/ram').push().key;
                   this.afDatabase.object(`usuarios/${this.userid}/formularios/ram/${this.ram.key}`).set(this.ram)
-                  .then(()=>this.cerrar_modal());
+                  .then(()=>{
+                    this.cap.mostrar_toast('Formulario creado exitosamente');
+                    this.cerrar_modal()
+                  });
                 });
 
   }

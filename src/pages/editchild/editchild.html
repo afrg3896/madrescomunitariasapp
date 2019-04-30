@@ -1,0 +1,104 @@
+<ion-header>
+    <ion-navbar color="rosado">
+        <ion-buttons left>
+
+            <button color="blanco" ion-button (click)="cerrar_modal()">
+              Cerrar
+          </button>
+        </ion-buttons>
+
+        <ion-title>
+            <p>Editar Info del Niño</p>
+        </ion-title>
+
+        <ion-buttons right>
+            <button color="blanco" ion-button (click)="actualizar()">Actualizar</button>
+        </ion-buttons>
+
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+    <ion-list>
+        <ion-item text-center class="ion-item1" no-lines>
+            <img *ngIf="!item.imagen && item.genero === 'masculino' && !imagenPreview" src="assets/boy.png">
+            <img *ngIf="!item.imagen && item.genero === 'femenino'  && !imagenPreview" src="assets/girl.png">
+            <img *ngIf="imagenPreview" [src]="imagenPreview">
+            <img *ngIf="item.imagen  && !imagenPreview" [src]="item.imagen">
+        </ion-item>
+        <ion-item text-center class="ion-item1" no-lines>
+            <button style="color:white" ion-button color="rosado" round (click)="seleccionar_foto()">Seleccionar Foto</button>
+        </ion-item>
+        <ion-item text-canter class="ion-item2">
+            <ion-icon name="create" item-left></ion-icon>
+            <ion-input [(ngModel)]="editnombre" type="text"></ion-input>
+        </ion-item>
+        <ion-item text-canter class="ion-item2">
+            <ion-icon name="create" item-left></ion-icon>
+            <ion-input [(ngModel)]="editapellido" type="text"></ion-input>
+        </ion-item>
+        <ion-item text-canter class="ion-item2">
+            <ion-icon name="create" item-left></ion-icon>
+            <ion-input [(ngModel)]="editnuip" type="text"></ion-input>
+        </ion-item>
+        <ion-item text-canter class="ion-item2">
+            <ion-icon name="create" item-left></ion-icon>
+            <ion-datetime displayFormat="DD/MM/YYYY" pickerFormat="YYYY MMMM DD" min="2012" [(ngModel)]="editfecha"></ion-datetime>
+        </ion-item>
+        <ion-item text-canter class="ion-item2">
+            <ion-icon name="create" item-left></ion-icon>
+            <ion-input [(ngModel)]="editedad" type="text"></ion-input>
+        </ion-item>
+        <ion-item text-canter class="ion-item2">
+            <ion-icon name="create" item-left></ion-icon>
+            <ion-select [(ngModel)]="editgenero">
+                <ion-option value="masculino">Masculino</ion-option>
+                <ion-option value="femenino">Femenino</ion-option>
+            </ion-select>
+        </ion-item>
+        <ion-item text-canter class="ion-item2">
+            <ion-icon name="create" item-left></ion-icon>
+            <ion-textarea [(ngModel)]="editinfo" type="text"></ion-textarea>
+        </ion-item>
+        <ion-item text-canter class="ion-item2">
+            <ion-icon name="create" item-left></ion-icon>
+            <ion-input [(ngModel)]="editdireccion" type="text"></ion-input>
+        </ion-item>
+        <h6>Información de Familiar</h6>
+        <ion-item text-canter class="ion-item2">
+            <ion-icon name="create" item-left></ion-icon>
+            <ion-input [(ngModel)]="editparentname" type="text"></ion-input>
+        </ion-item>
+        <ion-item text-canter class="ion-item2">
+            <ion-icon name="create" item-left></ion-icon>
+            <ion-input [(ngModel)]="editparentlastname" type="text"></ion-input>
+        </ion-item>
+        <ion-item text-canter class="ion-item2">
+            <ion-icon name="create" item-left></ion-icon>
+            <ion-input [(ngModel)]="editcedula" type="text"></ion-input>
+        </ion-item>
+        <ion-item text-canter class="ion-item2">
+            <ion-icon name="create" item-left></ion-icon>
+            <ion-input [(ngModel)]="editparentage" type="text"></ion-input>
+        </ion-item>
+        <ion-item text-canter class="ion-item2">
+            <ion-icon name="create" item-left></ion-icon>
+            <ion-select [(ngModel)]="editparentcivil">
+                <ion-option value="soltero">Soltero</ion-option>
+                <ion-option value="casado">Casado</ion-option>
+                <ion-option value="divorciado">Divorciado</ion-option>
+                <ion-option value="otro">Otro</ion-option>
+            </ion-select>
+        </ion-item>
+        <ion-item text-canter class="ion-item2">
+            <ion-icon name="create" item-left></ion-icon>
+            <ion-select [(ngModel)]="editparentesco">
+                <ion-option value="madre">Madre</ion-option>
+                <ion-option value="padre">Padre</ion-option>
+                <ion-option value="abuelo">Abuelo</ion-option>
+                <ion-option value="otro">Otro</ion-option>
+            </ion-select>
+        </ion-item>
+    </ion-list>
+</ion-content>

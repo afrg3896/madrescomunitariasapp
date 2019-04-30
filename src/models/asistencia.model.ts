@@ -1,5 +1,5 @@
 export interface Asistencias{
-    semana:string,
     dia:string,
+    fecha:number,
     key?:string,
 }

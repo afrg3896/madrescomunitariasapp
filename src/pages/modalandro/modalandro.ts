@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Antropometrico } from '../../models/antrometrico.model';
 import { AngularFireDatabase } from 'angularfire2/database';
+import { CargaArchivoProvider } from '../../providers/carga-archivo/carga-archivo';
 
 @IonicPage()
 @Component({
@@ -32,7 +33,7 @@ export class ModalandroPage {
     key:'',
   }
   constructor(public navCtrl: NavController, public navParams: NavParams, public fb: FormBuilder, public viewCtrl:ViewController,
-              public afAuth: AngularFireAuth, public afDatabase:AngularFireDatabase) {
+              public afAuth: AngularFireAuth, public afDatabase:AngularFireDatabase, public cap:CargaArchivoProvider) {
               this.llaveperiodo= this.navParams.get('llaveperiodo');
               this.llaveyear = this.navParams.get('llaveyear');
               this.child = this.navParams.get('item');
@@ -78,7 +79,10 @@ export class ModalandroPage {
                           this.afAuth.authState.take(1).subscribe(aut =>{
                             this.antropometrico.key = this.afDatabase.database.ref('/usuarios' + this.userid + '/formularios/antropometrico/'+ this.llaveyear + 'periodo' + this.llaveperiodo + '/tomas/').push().key;
                             this.afDatabase.object(`usuarios/${this.userid}/formularios/antropometrico/${this.llaveyear}/periodo/${this.llaveperiodo}/tomas/${this.antropometrico.key}`).set(this.antropometrico)
-                            .then(()=>this.cerrar_modal());
+                            .then(()=>{
+                              this.cap.mostrar_toast('Formulario creado exitosamente');
+                              this.cerrar_modal();
+                            });
                           });        
 
   }

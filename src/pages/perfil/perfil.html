@@ -5,10 +5,7 @@
                 <ion-icon name="menu"></ion-icon>
             </button>
         </ion-buttons>
-        <ion-title text-center>Perfil</ion-title>
-        <ion-buttons right>
-            <button ion-button (click)="actualizar()">Actualizar</button>
-        </ion-buttons>
+        <ion-title>Perfil</ion-title>
     </ion-navbar>
 </ion-header>
 
@@ -16,11 +13,10 @@
     <ion-list>
         <ion-item text-center *ngFor="let item of info">
             <ion-item text-center>
-                <img *ngIf="item.imagen === ''  && !imagenPreview" src="assets/hogar.png">
-                <img *ngIf="imagenPreview" [src]="imagenPreview">
+                <img *ngIf="item.imagen === ''" src="assets/hogar.png">
                 <img *ngIf="item.imagen" [src]="item.imagen">
             </ion-item>
-            <button ion-button (click)="seleccionar_foto()">Seleccionar Foto</button>
+            <button ion-button (click)="ir_edit()">Editar Perfil</button>
             <h1>{{item.nombre}}</h1>
             <h1>{{item.apellido}}</h1>
             <p>{{item.email}}</p>

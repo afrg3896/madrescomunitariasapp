@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ViewController, Platform } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController, Platform, LoadingController } from 'ionic-angular';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Observable } from 'rxjs';
@@ -24,9 +24,10 @@ export class ViewantrotimePage {
   pdfObj = null;
   childinfo:any;
   bodydata= [];
+  loading:any;
   constructor(public navCtrl: NavController, public navParams: NavParams,private viewCtrl: ViewController,
               public afDB:AngularFireDatabase, public afAuth: AngularFireAuth,public platform:Platform,
-              public file:File, public fileOpener:FileOpener) {
+              public file:File, public fileOpener:FileOpener,public loadingCtrl: LoadingController) {
               this.periodo = this.navParams.get('item');
               this.year = this.navParams.get('year');
               this.afAuth.authState.subscribe(user =>{
@@ -40,6 +41,9 @@ export class ViewantrotimePage {
                   });
                 }
               });
+              this.loading = this.loadingCtrl.create({
+                content: "Generando archivo PDF"
+              });
   }
 
   cerrar_modal(){
@@ -49,10 +53,12 @@ export class ViewantrotimePage {
   downloadPdf(){
     this.createPdf();
     if (this.platform.is('cordova')) {
+      this.loading.present();
       this.pdfObj.getBuffer((buffer) => {
         var blob = new Blob([buffer], { type: 'application/pdf' });
-        this.file.writeFile(this.file.dataDirectory, 'myletter.pdf', blob, { replace: true }).then(fileEntry => {
-          this.fileOpener.open(this.file.dataDirectory + 'myletter.pdf', 'application/pdf');
+        this.file.writeFile(this.file.dataDirectory, 'captura_datos_antropometricos.pdf', blob, { replace: true }).then(fileEntry => {
+          this.loading.dismiss();
+          this.fileOpener.open(this.file.dataDirectory + 'captura_datos_antropometricos.pdf', 'application/pdf');
         })
       });
     } else {

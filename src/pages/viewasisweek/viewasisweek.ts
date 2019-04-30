@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ItemSliding } from 'ionic-angular';
 import { Observable } from 'rxjs';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
@@ -38,8 +38,13 @@ export class ViewasisweekPage {
 
   }
 
-  viewasisdia(item:any){
+  viewasisdia(item:any,slidingItem: ItemSliding){
     this.navCtrl.push(ViewasisdiaPage, {'item':item,'year':this.year, 'mes':this.mes.key, 'semana':this.week});
+    slidingItem.close();
   }
 
+  eliminar(item,slidingItem){
+    this.afDB.list(`/usuarios/${this.userid}/formularios/asistencia/${this.year}/mes/${this.mes.key}/semana/${this.week}/dias/${item.key}`).remove();
+    slidingItem.close();
+  }
 }

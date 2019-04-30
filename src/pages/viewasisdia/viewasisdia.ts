@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, Platform } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Platform, LoadingController } from 'ionic-angular';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Observable } from 'rxjs';
@@ -27,13 +27,17 @@ export class ViewasisdiaPage {
   imagenicbf = icbf;
   asistenciainfo:any;
   pdfObj = null;
+  loading:any;
   constructor(public navCtrl: NavController, public navParams: NavParams, public afDB:AngularFireDatabase,
-    public afAuth: AngularFireAuth,public platform:Platform,public file:File, public fileOpener:FileOpener) {
+    public afAuth: AngularFireAuth,public platform:Platform,public file:File, public fileOpener:FileOpener,
+    public loadingCtrl: LoadingController) {
     this.dia= this.navParams.get('item');
     this.semana = this.navParams.get('semana');
     this.mes = this.navParams.get('mes');
     this.year = this.navParams.get('year');
-
+    this.loading = this.loadingCtrl.create({
+      content: "Generando archivo PDF"
+    });
     this.afAuth.authState.subscribe(user =>{
       if(user){
         this.userid = user.uid;
@@ -51,10 +55,12 @@ export class ViewasisdiaPage {
   downloadPdf(){
     this.createPdf();
     if (this.platform.is('cordova')) {
+      this.loading.present();
       this.pdfObj.getBuffer((buffer) => {
         var blob = new Blob([buffer], { type: 'application/pdf' });
-        this.file.writeFile(this.file.dataDirectory, 'myletter.pdf', blob, { replace: true }).then(fileEntry => {
-          this.fileOpener.open(this.file.dataDirectory + 'myletter.pdf', 'application/pdf');
+        this.file.writeFile(this.file.dataDirectory, 'formato_registro_asistencia.pdf', blob, { replace: true }).then(fileEntry => {
+          this.loading.dismiss();
+          this.fileOpener.open(this.file.dataDirectory + 'formato_registro_asistencia.pdf', 'application/pdf');
         })
       });
     } else {

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController, ModalController } from 'ionic-angular';
+import { IonicPage, NavController, ItemSliding, LoadingController, ModalController } from 'ionic-angular';
 import { RamPage } from '../ram/ram';
 import { Observable } from 'rxjs';
 import { AngularFireAuth } from 'angularfire2/auth';
@@ -34,13 +34,19 @@ export class AddramPage {
 
   }
 
-  viewRam(item:any){
+  viewRam(item:any,slidingItem: ItemSliding){
     let modal = this.modalCtrl.create(ViewRamPage, {'item':item});
     modal.present();
+    slidingItem.close();
   }
 
 
   addram(){
     this.navCtrl.push(RamPage);
+  }
+
+  eliminar(item,slidingItem){
+    this.afDatabase.list(`/usuarios/${this.userid}/formularios/ram/${item.key}`).remove();
+    slidingItem.close();
   }
 }

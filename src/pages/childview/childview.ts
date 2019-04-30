@@ -48,10 +48,5 @@ export class ChildviewPage {
      console.log('Error en camara', JSON.stringify(err));
     });
   }
-  actualizar(){
-    this._cap.cargar_imgchild_firebase(this.imagen64,this.userid,this.item.uid).then(()=>{
-      this.cerrar_modal();
-    });
-  }
 }
 
