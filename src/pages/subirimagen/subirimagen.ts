@@ -15,6 +15,7 @@ export class SubirimagenPage {
   userid:string;
   nombre=[];
   tipo:string='imagen';
+  descripcion:string ="";
   constructor(private viewCtrl: ViewController,
               private camera: Camera,
               public _cap:CargaArchivoProvider, public afDB:AngularFireDatabase, public afAuth:AngularFireAuth) {
@@ -75,6 +76,7 @@ export class SubirimagenPage {
       apellido:this.nombre['apellido'],
       rating:0,
       titulo:this.titulo,
+      descripcion: this.descripcion,
       tipo:this.tipo,
       fecha: Date.now()
     }

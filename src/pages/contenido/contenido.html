@@ -55,7 +55,7 @@
                     </ion-grid>
 
                 </ion-card-content>
-                <p>{{post.fecha}}</p>
+                <p>{{post.fecha | date}}</p>
             </ion-card>
 
         </ion-list>
@@ -68,32 +68,34 @@
                 </video>
                 <iframe *ngIf="video.tipo === 'youtube'" frameborder="0" allowfullscreen [src]="video.fuente | safe" width="100%" height="300px" allow="autoplay; encrypted-media">
                 </iframe>
-                <ion-card-title>
-                    {{video.titulo}}
-                </ion-card-title>
-                <h2> {{video.nombre}} {{video.apellido}}</h2>
-                <p>
-                    <ion-icon name="thumbs-up"></ion-icon> Rating:
-                    <ion-badge color="morado" item-end>{{video.rating | number:"1.0-2"}}</ion-badge>
-                </p>
-                <ion-grid>
-                    <ion-row>
-                        <ion-col text-center>
-                            <button ion-button round small color="morado" icon-left (click)="calificar(video)">
+                <ion-card-content>
+                    <ion-card-title>
+                        {{video.titulo}}
+                    </ion-card-title>
+                    <h2> {{video.nombre}} {{video.apellido}}</h2>
+                    <p>
+                        <ion-icon name="thumbs-up"></ion-icon> Rating:
+                        <ion-badge color="morado" item-end>{{video.rating | number:"1.0-2"}}</ion-badge>
+                    </p>
+                    <ion-grid>
+                        <ion-row>
+                            <ion-col text-center>
+                                <button ion-button round small color="morado" icon-left (click)="calificar(video)">
                                                             <ion-icon name="create"></ion-icon>
                                                             Calificar
                                     </button>
 
-                        </ion-col>
-                        <ion-col text-center>
-                            <button ion-button round small color="morado" icon-left (click)="ver_video(video)">
+                            </ion-col>
+                            <ion-col text-center>
+                                <button ion-button round small color="morado" icon-left (click)="ver_video(video)">
                                                         <ion-icon name="eye"></ion-icon>
                                                         Ver
                                     </button>
-                        </ion-col>
-                    </ion-row>
-                </ion-grid>
-
+                            </ion-col>
+                        </ion-row>
+                    </ion-grid>
+                </ion-card-content>
+                <p>{{video.fecha | date}}</p>
             </ion-card>
         </ion-list>
 

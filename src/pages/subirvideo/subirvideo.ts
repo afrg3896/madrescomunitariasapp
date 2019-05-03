@@ -19,6 +19,7 @@ export class SubirvideoPage {
   tipo:string = 'video';
   tipoyoutbe:string = 'youtube';
   youtube:string ='http://www.youtube.com/embed/';
+  descripcion:string="";
   constructor(public navCtrl: NavController, public navParams: NavParams, private viewCtrl: ViewController,
               public _cap:CargaArchivoProvider, public afDB:AngularFireDatabase, public afAuth:AngularFireAuth,
               public loadingCtrl: LoadingController,public alertCtrl: AlertController) {
@@ -44,6 +45,7 @@ export class SubirvideoPage {
       apellido:this.nombre['apellido'],
       rating:0,
       titulo:this.titulo,
+      descripcion:this.descripcion,
       tipo:this.tipo,
       fecha:Date.now()
     }
@@ -88,7 +90,7 @@ export class SubirvideoPage {
           let link = this.youtube + data.Link;
           console.log(link);
           let nombrearchivo = new Date().valueOf().toString();
-          this._cap.cargar_videos(this.titulo,link,this.nombre['nombre'],this.nombre['apellido'],0,nombrearchivo,this.tipoyoutbe,Date.now());
+          this._cap.cargar_videos(this.titulo,this.descripcion,link,this.nombre['nombre'],this.nombre['apellido'],0,nombrearchivo,this.tipoyoutbe,Date.now());
           }
         }
       ]

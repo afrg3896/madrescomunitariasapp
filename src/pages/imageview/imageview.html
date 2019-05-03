@@ -19,6 +19,12 @@
 
 <ion-content padding>
     <img [src]="item.fuente">
+
+    <ion-item *ngIf="item.descripcion" class="item item-trns text-center">
+        <textarea class="textarea" disabled="true" cols="32" rows="10">{{item.descripcion}}</textarea>
+    </ion-item>
+
+
     <h3 text-center> Comentarios</h3>
     <ion-card *ngFor="let comentario of (comentarios | async)?.slice().reverse()">
 

@@ -42,7 +42,7 @@ export class CargaArchivoProvider {
               
               this.mostrar_toast('imagen cargada correctamente');
               uploadTask.snapshot.ref.getDownloadURL().then(urlImage => {
-                this.cargar_imagenes(archivo.titulo, urlImage,archivo.nombre,archivo.apellido,archivo.rating, nombreArchivo, archivo.tipo,archivo.fecha);
+                this.cargar_imagenes(archivo.titulo,archivo.descripcion, urlImage,archivo.nombre,archivo.apellido,archivo.rating, nombreArchivo, archivo.tipo,archivo.fecha);
                  
                 }).catch((error) => {
                          console.log(error);
@@ -89,7 +89,7 @@ export class CargaArchivoProvider {
                   loading.dismiss();
                   this.mostrar_toast('Video cargado correctamente');
                   uploadTask.snapshot.ref.getDownloadURL().then(urlVideo => {
-                    this.cargar_videos(archivo.titulo, urlVideo,archivo.nombre,archivo.apellido,archivo.rating, nombreArchivo,archivo.tipo,archivo.fecha);
+                    this.cargar_videos(archivo.titulo,archivo.descripcion, urlVideo,archivo.nombre,archivo.apellido,archivo.rating, nombreArchivo,archivo.tipo,archivo.fecha);
                     }).catch((error) => {
                              console.log(error);
                     });
@@ -175,13 +175,14 @@ export class CargaArchivoProvider {
     return promesa;
   }
   //Firebase Realdatatime
-  private cargar_imagenes(titulo:string, url:string, nombre:string,apellido:string, rating:number, nombreArchivo:string, tipo:string, fecha:number){
+  private cargar_imagenes(titulo:string,descripcion:string, url:string, nombre:string,apellido:string, rating:number, nombreArchivo:string, tipo:string, fecha:number){
     let post: ArchivoSubir = {
       fuente:url,
       nombre:nombre,
       apellido:apellido,
       rating:rating,
       titulo:titulo,
+      descripcion:descripcion,
       tipo:tipo,
       fecha:fecha,
       key:nombreArchivo
@@ -193,13 +194,14 @@ export class CargaArchivoProvider {
 
   //Firebase Video Realdataime
 
-   cargar_videos(titulo:string, url:string, nombre:string, apellido:string, rating:number, nombreArchivo:string, tipo:string,fecha:number){
+   cargar_videos(titulo:string,descripcion:string, url:string, nombre:string, apellido:string, rating:number, nombreArchivo:string, tipo:string,fecha:number){
     let post: ArchivoSubir = {
       fuente:url,
       nombre:nombre,
       apellido:apellido,
       rating:rating,
       titulo:titulo,
+      descripcion:descripcion,
       tipo:tipo,
       fecha:fecha,
       key:nombreArchivo
@@ -311,6 +313,7 @@ interface ArchivoSubir {
   apellido:string;
   rating:number;
   titulo:string;
+  descripcion:string;
   tipo:string;
   fecha:number;
   key?:string;
